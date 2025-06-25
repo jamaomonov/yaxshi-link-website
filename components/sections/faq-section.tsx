@@ -26,13 +26,13 @@ const faqKeys = [
 ]
 
 const categories = [
-  { id: "all", name: "Все вопросы", icon: <BookOpen className="h-5 w-5" />, color: "from-blue-500 to-purple-500" },
-  { id: "basic", name: "Основные", icon: <HelpCircle className="h-5 w-5" />, color: "from-green-500 to-emerald-500" },
-  { id: "technical", name: "Технические", icon: <Settings className="h-5 w-5" />, color: "from-orange-500 to-red-500" },
-  { id: "business", name: "Бизнес", icon: <Users className="h-5 w-5" />, color: "from-purple-500 to-pink-500" },
+  { id: "all", name: "allQuestions", icon: <BookOpen className="h-5 w-5" />, color: "from-green-500 to-emerald-500" },
+  { id: "basic", name: "basicQuestions", icon: <HelpCircle className="h-5 w-5" />, color: "from-green-500 to-emerald-500" },
+  { id: "technical", name: "technicalQuestions", icon: <Settings className="h-5 w-5" />, color: "from-green-500 to-emerald-500" },
+  { id: "business", name: "businessQuestions", icon: <Users className="h-5 w-5" />, color: "from-green-500 to-emerald-500" },
   {
     id: "map",
-    name: "Карта фандоматов",
+    name: "fandomatMap",
     icon: <MapPin className="h-5 w-5" />,
     color: "from-yaxshi-green to-yaxshi-green-light",
   },
@@ -101,11 +101,11 @@ export default function FaqSection() {
             <MapPin className="h-6 w-6 text-white" />
           </motion.div>
           <div>
-            <h3 className="font-bold text-xl">Карта фандоматов Yaxshi.Link</h3>
+            <h3 className="font-bold text-xl">{t("fandomatMapTitle")}</h3>
             <div className="flex items-center gap-2 text-sm text-white/80">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              {fandomats.filter((f) => f.status === "active").length} активных •{" "}
-              {fandomats.filter((f) => f.status === "maintenance").length} на обслуживании
+              {fandomats.filter((f) => f.status === "active").length} {t("activeFandomats")} •{" "}
+              {fandomats.filter((f) => f.status === "maintenance").length} {t("underMaintenance")}
             </div>
           </div>
         </div>
@@ -240,11 +240,11 @@ export default function FaqSection() {
         <div className="mt-6 flex flex-wrap gap-4 justify-center">
           <div className="flex items-center gap-2 text-sm text-gray-300">
             <div className="w-3 h-3 bg-yaxshi-green rounded-full" />
-            Активные фандоматы
+            {t("activeFandomatsLabel")}
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-300">
             <div className="w-3 h-3 bg-orange-500 rounded-full" />
-            На обслуживании
+            {t("underMaintenanceLabel")}
           </div>
         </div>
       </div>
@@ -254,7 +254,7 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="py-16 md:py-24 bg-gradient-to-br from-yaxshi-green via-yaxshi-green-light to-green-600 text-white relative overflow-hidden"
+      className="py-16 md:py-24 bg-gradient-to-br from-green-600 via-green-yaxshi to-yaxshi-green-light text-white relative overflow-hidden"
     >
       {/* Animated background */}
       <div className="absolute inset-0">
@@ -317,7 +317,7 @@ export default function FaqSection() {
               <Search className="absolute z-10 left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white" />
               <input
                 type="text"
-                placeholder="Поиск по вопросам..."
+                placeholder={t("searchQuestions")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-white/90 focus:outline-none focus:border-white/50 focus:bg-white/15 transition-all duration-300"
@@ -357,7 +357,7 @@ export default function FaqSection() {
               whileTap={{ scale: 0.95 }}
             >
               {category.icon}
-              {category.name}
+              {t(category.name as any)}
             </motion.button>
           ))}
         </motion.div>
@@ -376,7 +376,7 @@ export default function FaqSection() {
                   exit={{ opacity: 0 }}
                 >
                   <div className="text-6xl mb-4">🔍</div>
-                  <p className="text-white/60 text-lg">Ничего не найдено. Попробуй другой запрос!</p>
+                  <p className="text-white/60 text-lg">{t("nothingFound")}</p>
                 </motion.div>
               ) : (
                 <div className="space-y-6">
@@ -413,7 +413,7 @@ export default function FaqSection() {
                               </h3>
                               <div className="flex items-center gap-2 text-sm text-white/60">
                                 <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                                Популярный вопрос
+                                {t("popularQuestion")}
                               </div>
                             </div>
                           </div>
@@ -441,35 +441,9 @@ export default function FaqSection() {
                                 animate={{ y: 0 }}
                                 transition={{ delay: 0.2 }}
                               >
-                                <div className="bg-gradient-to-r from-yaxshi-green/10 to-green-500/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
+                                <div className="">
                                   <p className="text-white/90 leading-relaxed mb-4">{t(faq.answer as any)}</p>
-                                  <motion.div
-                                    className="flex items-center justify-between"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.5 }}
-                                  >
-                                    <div className="flex items-center gap-2 text-sm text-white/70">
-                                      <Zap className="h-4 w-4" />
-                                      Полезно?
-                                    </div>
-                                    <div className="flex gap-2">
-                                      <motion.button
-                                        className="px-3 py-1 bg-white/10 rounded-full text-xs text-white/70 hover:bg-white/20 transition-colors"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                      >
-                                        👍 Да
-                                      </motion.button>
-                                      <motion.button
-                                        className="px-3 py-1 bg-white/10 rounded-full text-xs text-white/70 hover:bg-white/20 transition-colors"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                      >
-                                        👎 Нет
-                                      </motion.button>
-                                    </div>
-                                  </motion.div>
+                                  
                                 </div>
                               </motion.div>
                             </motion.div>

@@ -38,7 +38,7 @@ const FloatingBottle = ({
 }) => (
   <motion.div
     className={`absolute ${size} opacity-80`}
-    style={{ left: startX, top: startY }}
+    style={{ left: `${startX}%`, top: startY }}
     initial={{
       x: 0,
       y: 0,
@@ -46,7 +46,7 @@ const FloatingBottle = ({
       opacity: 0,
     }}
     animate={{
-      x: endX - startX,
+      x: `${endX - startX}vw`,
       y: endY - startY,
       rotate: 360,
       opacity: [0, 1, 0],
@@ -93,8 +93,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={0}
           duration={8}
-          startX={50}
-          endX={100}
+          startX={10}
+          endX={15}
           startY={-100}
           endY={800}
           size="w-8 h-16 sm:w-10 sm:h-20"
@@ -102,8 +102,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={2}
           duration={10}
-          startX={200}
-          endX={150}
+          startX={25}
+          endX={20}
           startY={-100}
           endY={800}
           size="w-6 h-12 sm:w-8 sm:h-16"
@@ -111,8 +111,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={4}
           duration={9}
-          startX={300}
-          endX={350}
+          startX={40}
+          endX={45}
           startY={-100}
           endY={800}
           size="w-10 h-20 sm:w-12 sm:h-24"
@@ -120,8 +120,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={1}
           duration={11}
-          startX={400}
-          endX={350}
+          startX={55}
+          endX={50}
           startY={-100}
           endY={800}
           size="w-12 h-24 sm:w-14 sm:h-28"
@@ -129,8 +129,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={3}
           duration={7}
-          startX={100}
-          endX={180}
+          startX={70}
+          endX={75}
           startY={-100}
           endY={800}
           size="w-8 h-10 sm:w-10 sm:h-12"
@@ -138,8 +138,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={5}
           duration={9}
-          startX={350}
-          endX={270}
+          startX={85}
+          endX={80}
           startY={-100}
           endY={800}
           size="w-6 h-8 sm:w-8 sm:h-10"
@@ -149,8 +149,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={6}
           duration={12}
-          startX={25}
-          endX={95}
+          startX={5}
+          endX={10}
           startY={-100}
           endY={800}
           size="w-8 h-16 sm:w-10 sm:h-20"
@@ -158,8 +158,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={8}
           duration={8}
-          startX={375}
-          endX={305}
+          startX={30}
+          endX={35}
           startY={-100}
           endY={800}
           size="w-6 h-12 sm:w-8 sm:h-16"
@@ -167,8 +167,8 @@ export default function HeroSection() {
         <FloatingBottle
           delay={7}
           duration={11}
-          startX={200}
-          endX={150}
+          startX={60}
+          endX={65}
           startY={-100}
           endY={800}
           size="w-8 h-10 sm:w-10 sm:h-12"
@@ -176,11 +176,65 @@ export default function HeroSection() {
         <FloatingBottle
           delay={9}
           duration={9}
-          startX={75}
-          endX={125}
+          startX={80}
+          endX={85}
           startY={-100}
           endY={800}
           size="w-10 h-20 sm:w-12 sm:h-24"
+        />
+        <FloatingBottle
+          delay={10}
+          duration={10}
+          startX={15}
+          endX={20}
+          startY={-100}
+          endY={800}
+          size="w-7 h-14 sm:w-9 sm:h-18"
+        />
+        <FloatingBottle
+          delay={11}
+          duration={8}
+          startX={45}
+          endX={40}
+          startY={-100}
+          endY={800}
+          size="w-9 h-18 sm:w-11 sm:h-22"
+        />
+        <FloatingBottle
+          delay={12}
+          duration={11}
+          startX={75}
+          endX={70}
+          startY={-100}
+          endY={800}
+          size="w-6 h-12 sm:w-8 sm:h-16"
+        />
+        <FloatingBottle
+          delay={13}
+          duration={9}
+          startX={90}
+          endX={95}
+          startY={-100}
+          endY={800}
+          size="w-8 h-16 sm:w-10 sm:h-20"
+        />
+        <FloatingBottle
+          delay={14}
+          duration={7}
+          startX={35}
+          endX={30}
+          startY={-100}
+          endY={800}
+          size="w-10 h-20 sm:w-12 sm:h-24"
+        />
+        <FloatingBottle
+          delay={15}
+          duration={12}
+          startX={65}
+          endX={60}
+          startY={-100}
+          endY={800}
+          size="w-7 h-14 sm:w-9 sm:h-18"
         />
       </div>
 

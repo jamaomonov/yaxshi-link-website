@@ -33,7 +33,6 @@ export default function FandomatInfoSection() {
     {
       number: "500+",
       text: "yearsDecompose" as TranslationKey,
-      description: "yearsDecomposeDesc" as TranslationKey,
       color: "from-orange-500 to-red-500",
     },
     {
@@ -210,41 +209,16 @@ export default function FandomatInfoSection() {
                     >
                       <motion.div
                         className={`text-5xl sm:text-6xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent mb-3`}
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                       >
                         {item.number}
                       </motion.div>
                       <h4 className="font-bold text-lg sm:text-xl mb-2">{t(item.text)}</h4>
-                      <p className="text-white/90 text-sm sm:text-base">{t(item.description)}</p>
                     </motion.div>
                   ))}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Call to action */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <motion.div
-              className="bg-gradient-to-r from-yaxshi-accent to-orange-500 p-6 sm:p-8 rounded-2xl md:rounded-3xl text-white shadow-2xl max-w-2xl mx-auto"
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <motion.h4
-                className="text-2xl font-bold mb-4"
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-              >
-                {t("letsSaveNature")}
-              </motion.h4>
-              <p className="text-white/90 text-lg leading-relaxed">{t("pollutionWarning")}</p>
+              <p className="text-white/90 text-lg font-bold leading-relaxed mt-4">{t("pollutionWarning")}</p>
+              <p className="text-white/90 text-lg font-bold leading-relaxed">{t("letsSaveNature")}</p>
             </motion.div>
           </motion.div>
         </div>

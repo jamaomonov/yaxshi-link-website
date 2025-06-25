@@ -30,7 +30,6 @@ export default function ExchangeSection() {
     {
       number: "500",
       text: "yearsDecompose" as TranslationKey,
-      description: "yearsDecomposeDesc" as TranslationKey,
     },
     {
       number: "95%",
@@ -123,7 +122,6 @@ export default function ExchangeSection() {
                     <div className="text-4xl font-bold text-white/90">{item.number}</div>
                     <div>
                       <h4 className="font-semibold mb-2">{t(item.text)}</h4>
-                      <p className="text-white/80 text-sm">{t(item.description)}</p>
                     </div>
                   </div>
                 ))}

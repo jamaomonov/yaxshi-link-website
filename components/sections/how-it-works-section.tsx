@@ -68,7 +68,7 @@ export default function HowItWorksSection() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-yaxshi-green via-yaxshi-green-light to-green-600 text-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-green-600 via-green-yaxshi to-yaxshi-green-light text-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <motion.div

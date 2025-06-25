@@ -9,22 +9,22 @@ const stats = [
   {
     value: "10M+",
     label: "bottlesCollected" as TranslationKey,
-    icon: <Package className="h-8 w-8 sm:h-10 sm:w-10 text-yaxshi-green group-hover:text-white transition-colors duration-300" />,
+    icon: <Package className="h-8 w-8 sm:h-10 sm:w-10 text-white group-hover:text-white transition-colors duration-300" />,
   },
   {
     value: "500+",
     label: "plasticRecycled" as TranslationKey,
-    icon: <Trash2 className="h-8 w-8 sm:h-10 sm:w-10 text-yaxshi-green group-hover:text-white transition-colors duration-300" />,
+    icon: <Trash2 className="h-8 w-8 sm:h-10 sm:w-10 text-white  transition-colors duration-300" />,
   },
   {
     value: "35%",
     label: "co2Reduction" as TranslationKey,
-    icon: <TrendingUp className="h-8 w-8 sm:h-10 sm:w-10 text-yaxshi-green group-hover:text-white transition-colors duration-300" />,
+    icon: <TrendingUp className="h-8 w-8 sm:h-10 sm:w-10 text-white group-hover:text-white transition-colors duration-300" />,
   },
   {
     value: "13/17",
     label: "unGoals" as TranslationKey,
-    icon: <Globe className="h-8 w-8 sm:h-10 sm:w-10 text-yaxshi-green group-hover:text-white transition-colors duration-300" />,
+    icon: <Globe className="h-8 w-8 sm:h-10 sm:w-10 text-white group-hover:text-white transition-colors duration-300" />,
   },
 ]
 

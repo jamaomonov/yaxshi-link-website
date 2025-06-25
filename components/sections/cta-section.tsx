@@ -109,7 +109,7 @@ export default function CtaSection() {
           <div className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-6">
               <motion.div variants={itemVariants} className="relative">
-                <Label htmlFor="name" className="text-lg font-medium mb-2 block flex items-center gap-2">
+                <Label htmlFor="name" className="text-lg font-medium mb-2 flex items-center gap-2">
                   <User className="h-5 w-5 text-yaxshi-green" />
                   {t("yourName")}
                 </Label>
@@ -123,7 +123,7 @@ export default function CtaSection() {
               </motion.div>
 
               <motion.div variants={itemVariants} className="relative">
-                <Label htmlFor="phone" className="text-lg font-medium mb-2 block flex items-center gap-2">
+                <Label htmlFor="phone" className="text-lg font-medium mb-2 flex items-center gap-2">
                   <Phone className="h-5 w-5 text-yaxshi-green" />
                   {t("phone")}
                 </Label>
@@ -137,7 +137,7 @@ export default function CtaSection() {
               </motion.div>
 
               <motion.div variants={itemVariants} className="relative">
-                <Label htmlFor="message" className="text-lg font-medium mb-2 block flex items-center gap-2">
+                <Label htmlFor="message" className="text-lg font-medium mb-2 flex items-center gap-2">
                   <MessageSquare className="h-5 w-5 text-yaxshi-green" />
                   {t("message")}
                 </Label>

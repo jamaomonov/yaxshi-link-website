@@ -10,9 +10,9 @@ import { useLanguage } from "@/hooks/use-language"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 const languages = [
-  { code: "ru", name: "Русский", flag: "🇷🇺" },
-  { code: "uz", name: "O'zbek", flag: "🇺🇿" },
-  { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "ru", name: "RU"},
+  { code: "uz", name: "UZ"},
+  { code: "en", name: "EN"},
 ]
 
 export default function Header() {
@@ -54,9 +54,9 @@ export default function Header() {
           <Image
             src={isScrolled ? "/logos/yaxshi-logo-white-bg.png" : "/logos/yaxshi-logo-for-green.png"}
             alt="Yaxshi.Link Logo"
-            width={120}
-            height={30}
-            className="object-contain transition-all duration-300 w-20 sm:w-24 md:w-28 lg:w-32"
+            width={140}
+            height={40}
+            className="object-contain transition-all duration-300 w-32 sm:w-36 md:w-40 lg:w-44"
           />
         </Link>
 
@@ -65,7 +65,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:scale-105 transform duration-200 ${
+              className={`text-sm font-bold transition-colors hover:scale-105 transform duration-200 ${
                 isScrolled ? "text-gray-700 hover:text-yaxshi-green" : "text-white/90 hover:text-white drop-shadow-sm"
               }`}
             >
@@ -77,14 +77,14 @@ export default function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                variant="ghost"
                 size="sm"
-                className={`transition-all duration-300 ${
-                  isScrolled ? "text-gray-700 hover:text-yaxshi-green" : "text-white/90 hover:text-white"
+                className={`transition-all duration-300 border-2 border-white/20 bg-transparent hover:bg-transparent
+                  ${ isScrolled
+                    ? "text-gray-700 border border-gray-700 hover:text-yaxshi-green hover:border-yaxshi-green" 
+                    : "text-white/90 hover:text-white"
                 }`}
               >
                 <Globe className="h-4 w-4 mr-2" />
-                <span className="mr-1">{currentLanguage?.flag}</span>
                 <span className="hidden xl:inline">{currentLanguage?.name}</span>
                 <ChevronDown className="h-3 w-3 ml-1" />
               </Button>
@@ -96,7 +96,6 @@ export default function Header() {
                   onClick={() => setLanguage(lang.code as any)}
                   className={`cursor-pointer ${language === lang.code ? "bg-yaxshi-green/10" : ""}`}
                 >
-                  <span className="mr-2">{lang.flag}</span>
                   {lang.name}
                 </DropdownMenuItem>
               ))}
@@ -108,7 +107,7 @@ export default function Header() {
               variant="outline"
               className={`transition-all duration-300 border-2 ${
                 isScrolled
-                  ? "bg-yaxshi-accent text-white border-yaxshi-accent hover:bg-yaxshi-accent/90"
+                  ? "bg-yaxshi-green text-white border-transparent hover:bg-yaxshi-green-light"
                   : "bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm"
               }`}
             >
@@ -125,11 +124,12 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`transition-colors ${
+                className={`transition-colors flex items-center gap-1 ${
                   isScrolled ? "text-gray-700 hover:text-yaxshi-green" : "text-white hover:text-white/80"
                 }`}
               >
-                <span>{currentLanguage?.flag}</span>
+                <Globe className="h-4 w-4" />
+                <span className="text-sm font-medium">{currentLanguage?.name}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white/95 backdrop-blur-md border border-white/20">
@@ -139,7 +139,6 @@ export default function Header() {
                   onClick={() => setLanguage(lang.code as any)}
                   className={`cursor-pointer ${language === lang.code ? "bg-yaxshi-green/10" : ""}`}
                 >
-                  <span className="mr-2">{lang.flag}</span>
                   {lang.name}
                 </DropdownMenuItem>
               ))}
@@ -147,10 +146,9 @@ export default function Header() {
           </DropdownMenu>
 
           <Button
-            variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`transition-colors ${
+            className={`bg-transparent ${
               isScrolled ? "text-gray-700 hover:text-yaxshi-green" : "text-white hover:text-white/80"
             }`}
           >
@@ -190,7 +188,7 @@ export default function Header() {
               <Button
                 className={`w-full max-w-xs transition-all duration-300 ${
                   isScrolled
-                    ? "bg-yaxshi-accent text-white hover:bg-yaxshi-accent/90"
+                    ? "bg-yaxshi-green text-white hover:bg-yaxshi-green/90"
                     : "bg-white text-yaxshi-green hover:bg-white/90"
                 }`}
               >
