@@ -8,23 +8,24 @@ import { motion } from "framer-motion"
 import { Send, Building, Handshake, TrendingUpIcon, Phone, User, MessageSquare } from "lucide-react"
 import { useState } from "react"
 import { useLanguage } from "@/hooks/use-language"
+import { TranslationKey } from "@/lib/translations"
 
 const formTypes = [
   {
     id: "fandomat",
-    label: "installFandomat",
+    label: "installFandomat" as TranslationKey,
     icon: <Building className="h-5 w-5" />,
     color: "from-blue-500 to-cyan-500",
   },
   {
     id: "partner",
-    label: "becomePartnerBtn",
+    label: "becomePartnerBtn" as TranslationKey,
     icon: <Handshake className="h-5 w-5" />,
     color: "from-green-500 to-emerald-500",
   },
   {
     id: "invest",
-    label: "invest",
+    label: "invest" as TranslationKey,
     icon: <TrendingUpIcon className="h-5 w-5" />,
     color: "from-orange-500 to-red-500",
   },

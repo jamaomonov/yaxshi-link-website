@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/hooks/use-language"
+import { TranslationKey } from "@/lib/translations"
 
 export default function ExchangeSection() {
   const { t } = useLanguage()
@@ -10,31 +11,31 @@ export default function ExchangeSection() {
   const acceptedItems = [
     {
       icon: "/icons/plastic-bottle.png",
-      title: "plasticBottles",
-      description: "plasticBottlesDesc",
+      title: "plasticBottles" as TranslationKey,
+      description: "plasticBottlesDesc" as TranslationKey,
     },
     {
       icon: "/icons/no-plastic.png",
-      title: "noLiquid",
-      description: "noLiquidDesc",
+      title: "noLiquid" as TranslationKey,
+      description: "noLiquidDesc" as TranslationKey,
     },
     {
       icon: "/icons/recycle-bottle.png",
-      title: "upTo2L",
-      description: "upTo2LDesc",
+      title: "upTo2L" as TranslationKey,
+      description: "upTo2LDesc" as TranslationKey,
     },
   ]
 
   const whyRecycle = [
     {
       number: "500",
-      text: "yearsDecompose",
-      description: "yearsDecomposeDesc",
+      text: "yearsDecompose" as TranslationKey,
+      description: "yearsDecomposeDesc" as TranslationKey,
     },
     {
       number: "95%",
-      text: "plasticToLandfill",
-      description: "plasticToLandfillDesc",
+      text: "plasticToLandfill" as TranslationKey,
+      description: "plasticToLandfillDesc" as TranslationKey,
     },
   ]
 

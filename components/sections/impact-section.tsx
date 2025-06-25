@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { MapPin, Users, TrendingUp, Globe2, ShieldCheck, ArrowRight, Sparkles } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { useLanguage } from "@/hooks/use-language"
+import { TranslationKey } from "@/lib/translations"
 
 export default function ImpactSection() {
   const { t } = useLanguage()
@@ -11,32 +12,32 @@ export default function ImpactSection() {
   const impacts = [
     {
       icon: <MapPin className="h-7 w-7 text-yaxshi-green" />,
-      text: "impactText1",
-      metric: "impactMetric1",
+      text: "impactText1" as TranslationKey,
+      metric: "impactMetric1" as TranslationKey,
       color: "from-green-500 to-emerald-600",
     },
     {
       icon: <Users className="h-7 w-7 text-yaxshi-green" />,
-      text: "impactText2",
-      metric: "impactMetric2",
+      text: "impactText2" as TranslationKey,
+      metric: "impactMetric2" as TranslationKey,
       color: "from-blue-500 to-cyan-600",
     },
     {
       icon: <Globe2 className="h-7 w-7 text-yaxshi-green" />,
-      text: "impactText3",
-      metric: "impactMetric3",
+      text: "impactText3" as TranslationKey,
+      metric: "impactMetric3" as TranslationKey,
       color: "from-purple-500 to-pink-600",
     },
     {
       icon: <TrendingUp className="h-7 w-7 text-yaxshi-green" />,
-      text: "impactText4",
-      metric: "impactMetric4",
+      text: "impactText4" as TranslationKey,
+      metric: "impactMetric4" as TranslationKey,
       color: "from-orange-500 to-red-600",
     },
     {
       icon: <ShieldCheck className="h-7 w-7 text-yaxshi-green" />,
-      text: "impactText5",
-      metric: "impactMetric5",
+      text: "impactText5" as TranslationKey,
+      metric: "impactMetric5" as TranslationKey,
       color: "from-teal-500 to-green-600",
     },
   ]
@@ -48,7 +49,7 @@ export default function ImpactSection() {
 
   const itemVariants = {
     hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, type: "spring", stiffness: 70 } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, type: "spring" as const, stiffness: 70 } },
   }
 
   return (

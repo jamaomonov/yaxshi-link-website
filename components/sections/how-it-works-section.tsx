@@ -3,37 +3,38 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Smartphone, MapPin, BarChart3, Gift, Sparkles, ArrowRight } from "lucide-react"
+import { Download, Smartphone, Recycle, Gift, Sparkles, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/hooks/use-language"
+import { TranslationKey } from "@/lib/translations"
 import Link from "next/link"
 
 const steps = [
   {
-    number: "01",
-    title: "handInWaste",
-    description: "handInWasteDesc",
-    buttonText: "findFandomats",
-    icon: <MapPin className="h-8 w-8" />,
+    number: "1",
+    title: "downloadApp" as TranslationKey,
+    description: "downloadAppDesc" as TranslationKey,
+    buttonText: "downloadNow" as TranslationKey,
+    icon: <Download className="h-8 w-8" />,
     color: "from-blue-500 to-cyan-500",
   },
   {
-    number: "02",
-    title: "registerPhone",
-    description: "registerPhoneDesc",
+    number: "2",
+    title: "registerPhone" as TranslationKey,
+    description: "registerPhoneDesc" as TranslationKey,
     icon: <Smartphone className="h-8 w-8" />,
     color: "from-green-500 to-emerald-500",
   },
   {
-    number: "03",
-    title: "trackStats",
-    description: "trackStatsDesc",
-    icon: <BarChart3 className="h-8 w-8" />,
+    number: "3",
+    title: "recycleRegularly" as TranslationKey,
+    description: "recycleRegularlyDesc" as TranslationKey,
+    icon: <Recycle className="h-8 w-8" />,
     color: "from-purple-500 to-pink-500",
   },
   {
-    number: "04",
-    title: "exchangeBonuses",
-    description: "exchangeBonusesDesc",
+    number: "4",
+    title: "getRewards" as TranslationKey,
+    description: "getRewardsDesc" as TranslationKey,
     icon: <Gift className="h-8 w-8" />,
     color: "from-orange-500 to-red-500",
   },
@@ -128,7 +129,7 @@ export default function HowItWorksSection() {
                 <CardContent className="p-6 text-center space-y-6">
                   <div className="flex flex-col items-center">
                     <motion.div
-                      className="text-6xl font-bold text-white/30 mb-4"
+                      className="text-6xl font-bold text-white mb-4"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: index * 0.5 }}
                     >
@@ -136,22 +137,21 @@ export default function HowItWorksSection() {
                     </motion.div>
                     <motion.div
                       className={`w-20 h-20 bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
-                      variants={floatingVariants}
-                      animate="animate"
-                      style={{ animationDelay: `${index * 0.5}s` }}
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: index * 0.5 }}
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
                       <div className="text-white">{step.icon}</div>
                     </motion.div>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-gray-900 transition-colors">
+                  <h3 className="text-xl font-bold mb-3 ">
                     {t(step.title)}
                   </h3>
 
                   <p className="text-white/80 text-sm leading-relaxed">{t(step.description)}</p>
 
-                  {step.buttonText && (
+                  {/* {step.buttonText && (
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="pt-4">
                       <Link href="#faq">
                         <Button
@@ -163,7 +163,7 @@ export default function HowItWorksSection() {
                         </Button>
                       </Link>
                     </motion.div>
-                  )}
+                  )} */}
                 </CardContent>
               </Card>
             </motion.div>

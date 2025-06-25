@@ -25,10 +25,10 @@ export default function PartnersSection() {
   }
 
   return (
-    <section id="partners" className="py-16 md:py-24 bg-yaxshi-green-light/10">
-      <div className="container px-4 md:px-6">
+    <section id="partners" className="py-12 sm:py-16 md:py-24 bg-yaxshi-green-light/10">
+      <div className="container px-4 sm:px-6">
         <motion.h2
-          className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-yaxshi-green"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center mb-8 sm:mb-12 text-yaxshi-green"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -37,7 +37,7 @@ export default function PartnersSection() {
           {t("ourPartners")}
         </motion.h2>
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-center max-w-4xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -46,18 +46,18 @@ export default function PartnersSection() {
           {partners.map((partner, index) => (
             <motion.div
               key={index}
-              className="flex justify-center"
+              className="flex justify-center p-2 sm:p-4"
               variants={itemVariants}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
+              <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block w-full">
                 <Image
                   src={partner.logo || "/placeholder.svg"}
                   alt={partner.name}
                   width={150}
                   height={80}
-                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-16"
+                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-12 sm:max-h-16 w-full"
                 />
               </a>
             </motion.div>

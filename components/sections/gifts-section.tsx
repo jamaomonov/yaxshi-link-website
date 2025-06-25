@@ -4,35 +4,36 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, ArrowRight, Sparkles } from "lucide-react"
 import { useLanguage } from "@/hooks/use-language"
+import { TranslationKey } from "@/lib/translations"
 
 const gifts = [
   {
-    name: "drink",
+    name: "drink" as TranslationKey,
     bottles: 10,
     image: "/images/drink-bottle.jpg",
     color: "from-blue-500 to-cyan-500",
-    description: "drinkDesc",
+    description: "drinkDesc" as TranslationKey,
   },
   {
-    name: "brandedGift",
+    name: "brandedGift" as TranslationKey,
     bottles: 100,
     image: "/images/gifts-3d.jpg",
     color: "from-purple-500 to-pink-500",
-    description: "brandedGiftDesc",
+    description: "brandedGiftDesc" as TranslationKey,
   },
   {
-    name: "smartphone",
+    name: "smartphone" as TranslationKey,
     bottles: 1000,
     image: "/images/phone-mockup-1.jpg",
     color: "from-green-500 to-emerald-500",
-    description: "smartphoneDesc",
+    description: "smartphoneDesc" as TranslationKey,
   },
   {
-    name: "travel",
+    name: "travel" as TranslationKey,
     bottles: 3000,
     image: "/images/travel-gift.jpg",
     color: "from-orange-500 to-red-500",
-    description: "travelDesc",
+    description: "travelDesc" as TranslationKey,
   },
 ]
 
@@ -55,7 +56,7 @@ export default function GiftsSection() {
       y: 0,
       transition: {
         duration: 0.6,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 10,
       },

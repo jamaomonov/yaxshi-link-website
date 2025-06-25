@@ -6,27 +6,29 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { useState } from "react"
 import { useLanguage } from "@/hooks/use-language"
+import { TranslationKey } from "@/lib/translations"
+import Image from "next/image"
 
 const userAdvantages = [
   {
     icon: <Leaf className="h-8 w-8 text-yaxshi-green" />,
-    title: "ecoFriendly",
-    description: "ecoFriendlyDesc",
-    details: "ecoFriendlyDetails",
+    title: "ecoFriendly" as TranslationKey,
+    description: "ecoFriendlyDesc" as TranslationKey,
+    details: "ecoFriendlyDetails" as TranslationKey,
     animation: "eco",
   },
   {
     icon: <DollarSign className="h-8 w-8 text-yaxshi-green" />,
-    title: "profit",
-    description: "profitDesc",
-    details: "profitDetails",
+    title: "profit" as TranslationKey,
+    description: "profitDesc" as TranslationKey,
+    details: "profitDetails" as TranslationKey,
     animation: "money",
   },
   {
     icon: <Gift className="h-8 w-8 text-yaxshi-green" />,
-    title: "bonuses",
-    description: "bonusesDesc",
-    details: "bonusesDetails",
+    title: "bonuses" as TranslationKey,
+    description: "bonusesDesc" as TranslationKey,
+    details: "bonusesDetails" as TranslationKey,
     animation: "gifts",
   },
 ]
@@ -34,23 +36,23 @@ const userAdvantages = [
 const brandAdvantages = [
   {
     icon: <Users className="h-8 w-8 text-yaxshi-accent" />,
-    title: "loyalAudience",
-    description: "loyalAudienceDesc",
-    details: "loyalAudienceDetails",
+    title: "loyalAudience" as TranslationKey,
+    description: "loyalAudienceDesc" as TranslationKey,
+    details: "loyalAudienceDetails" as TranslationKey,
     animation: "audience",
   },
   {
     icon: <BarChart3 className="h-8 w-8 text-yaxshi-accent" />,
-    title: "analytics",
-    description: "analyticsDesc",
-    details: "analyticsDetails",
+    title: "analytics" as TranslationKey,
+    description: "analyticsDesc" as TranslationKey,
+    details: "analyticsDetails" as TranslationKey,
     animation: "analytics",
   },
   {
     icon: <Target className="h-8 w-8 text-yaxshi-accent" />,
-    title: "ecoRating",
-    description: "ecoRatingDesc",
-    details: "ecoRatingDetails",
+    title: "ecoRating" as TranslationKey,
+    description: "ecoRatingDesc" as TranslationKey,
+    details: "ecoRatingDetails" as TranslationKey,
     animation: "brand",
   },
 ]
@@ -90,10 +92,18 @@ const AnimatedContent = ({ type }: { type: string }) => {
           {[1, 2, 3].map((i) => (
             <motion.div
               key={i}
-              className="w-8 h-8 bg-yellow-400 rounded-full"
+              className="w-8 h-8 relative"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, delay: i * 0.2 }}
-            />
+            >
+              <Image
+                src="/icons/bottle.png"
+                alt="Бутылка"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
+            </motion.div>
           ))}
         </motion.div>
       </div>

@@ -7,7 +7,6 @@ export const translations = {
     partners: "Партнёры",
     faq: "FAQ",
     download: "Скачать",
-    downloadApp: "Скачать приложение",
 
     // Hero
     heroTitle: "Сдавай бутылки — получай баллы и подарки!",
@@ -160,18 +159,16 @@ export const translations = {
     howToParticipate: "Как участвовать в бонусной программе?",
     bonusProgram: "Бонусная программа",
     fourSimpleSteps: "Всего 4 простых шага к экологичному будущему!",
-    handInWaste: "Сдать тару",
-    handInWasteDesc: "в фандоматы Yaxshi.Link по всему городу",
-    findFandomats: "Найти фандоматы",
-    registerPhone: "Зарегистрировать номер телефона",
+    downloadApp: "Скачать приложение yaxshi.link",
+    downloadAppDesc: "Установи приложение на свой смартфон из App Store или Google Play",
+    downloadNow: "Скачать сейчас",
+    registerPhone: "Зарегистрироваться по номеру телефона",
     registerPhoneDesc:
       "при сдаче тары в фандомат или на сайте. За каждую сданную бутылку или банку вам будет начислено 10 бонусов.",
-    trackStats: "Следить за статистикой",
-    trackStatsDesc:
-      "и местом в рейтинге всегда можно в профиле участника акции на сайте, авторизовавшись по вашему номеру телефона.",
-    exchangeBonuses: "Обменивать бонусы на реальную выгоду",
-    exchangeBonusesDesc:
-      "в мобильном приложении Yaxshi.Link вы можете конвертировать полученные бонусы на скидки, баллы на карты лояльности и подарки от наших партнеров.",
+    recycleRegularly: "Сдавать регулярно бутылки",
+    recycleRegularlyDesc: "Приноси пластиковые бутылки и алюминиевые банки в фандоматы Yaxshi.Link",
+    getRewards: "Получать призы и подарки",
+    getRewardsDesc: "Обменивай накопленные баллы на крутые подарки от наших партнеров",
     participate: "Принять участие",
 
     // Fandomat info section
@@ -203,7 +200,6 @@ export const translations = {
     partners: "Hamkorlar",
     faq: "Savol-javob",
     download: "Yuklab olish",
-    downloadApp: "Ilovani yuklab olish",
 
     // Hero
     heroTitle: "Shishalarni topshir — ball va sovg'alar ol!",
@@ -357,18 +353,16 @@ export const translations = {
     howToParticipate: "Bonus dasturida qanday ishtirok etish mumkin?",
     bonusProgram: "Bonus dasturi",
     fourSimpleSteps: "Ekologik kelajakka atigi 4 ta oddiy qadam!",
-    handInWaste: "Idishlarni topshirish",
-    handInWasteDesc: "shahar bo'ylab Yaxshi.Link fandomatlariga",
-    findFandomats: "Fandomatlarni topish",
-    registerPhone: "Telefon raqamini ro'yxatdan o'tkazish",
+    downloadApp: "Yaxshi.link ilovasini yuklab olish",
+    downloadAppDesc: "Ilovani App Store yoki Google Play dan o'rnating",
+    downloadNow: "Hozir yuklab olish",
+    registerPhone: "Telefon raqami bilan ro'yxatdan o'tish",
     registerPhoneDesc:
       "fandomatga idish topshirganda yoki saytda. Har bir topshirilgan shisha yoki banka uchun sizga 10 bonus beriladi.",
-    trackStats: "Statistikani kuzatish",
-    trackStatsDesc:
-      "va reytingdagi o'rningizni har doim saytdagi aksiya ishtirokchisi profilida, telefon raqamingiz orqali avtorizatsiya qilib ko'rishingiz mumkin.",
-    exchangeBonuses: "Bonuslarni real foyda uchun almashtirish",
-    exchangeBonusesDesc:
-      "Yaxshi.Link mobil ilovasida olingan bonuslarni chegirmalar, sodiqlik kartalari balllari va hamkorlarimizdan sovg'alarga aylantira olasiz.",
+    recycleRegularly: "Muntazam ravishda shishalarni topshirish",
+    recycleRegularlyDesc: "Plastik shishalar va alyuminiy bankalarni Yaxshi.Link fandomatlariga olib keling",
+    getRewards: "Mukofotlar va sovg'alarni olish",
+    getRewardsDesc: "To'plangan balllarni hamkorlarimizdan ajoyib sovg'alarga almashtiring",
     participate: "Ishtirok etish",
 
     // Fandomat info section
@@ -400,7 +394,6 @@ export const translations = {
     partners: "Partners",
     faq: "FAQ",
     download: "Download",
-    downloadApp: "Download app",
 
     // Hero
     heroTitle: "Turn in bottles — get points and gifts!",
@@ -552,18 +545,16 @@ export const translations = {
     howToParticipate: "How to participate in the bonus program?",
     bonusProgram: "Bonus program",
     fourSimpleSteps: "Just 4 simple steps to an eco-friendly future!",
-    handInWaste: "Hand in containers",
-    handInWasteDesc: "to Yaxshi.Link fandomats throughout the city",
-    findFandomats: "Find fandomats",
+    downloadApp: "Download app",
+    downloadAppDesc: "Install the app on your smartphone",
+    downloadNow: "Download now",
     registerPhone: "Register phone number",
     registerPhoneDesc:
       "when handing in containers to fandomat or on the website. For each bottle or can you hand in, you will receive 10 bonuses.",
-    trackStats: "Track statistics",
-    trackStatsDesc:
-      "and your place in the rating can always be viewed in the participant profile on the website by logging in with your phone number.",
-    exchangeBonuses: "Exchange bonuses for real benefits",
-    exchangeBonusesDesc:
-      "in the Yaxshi.Link mobile app you can convert received bonuses to discounts, loyalty card points and gifts from our partners.",
+    recycleRegularly: "Recycle bottles regularly",
+    recycleRegularlyDesc: "Bring plastic bottles and aluminum cans to Yaxshi.Link fandomats",
+    getRewards: "Get rewards and gifts",
+    getRewardsDesc: "Exchange accumulated points for cool gifts from our partners",
     participate: "Participate",
 
     // Fandomat info section

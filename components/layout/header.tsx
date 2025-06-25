@@ -40,7 +40,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
         isScrolled
           ? "bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-lg"
           : "bg-white/10 backdrop-blur-md border-b border-white/10"
@@ -49,18 +49,18 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+      <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="mr-4 sm:mr-6 flex items-center space-x-2">
           <Image
             src={isScrolled ? "/logos/yaxshi-logo-white-bg.png" : "/logos/yaxshi-logo-for-green.png"}
             alt="Yaxshi.Link Logo"
             width={120}
             height={30}
-            className="object-contain transition-all duration-300"
+            className="object-contain transition-all duration-300 w-20 sm:w-24 md:w-28 lg:w-32"
           />
         </Link>
 
-        <nav className="hidden md:flex gap-6 items-center">
+        <nav className="hidden lg:flex gap-4 xl:gap-6 items-center">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -85,7 +85,7 @@ export default function Header() {
               >
                 <Globe className="h-4 w-4 mr-2" />
                 <span className="mr-1">{currentLanguage?.flag}</span>
-                <span className="hidden sm:inline">{currentLanguage?.name}</span>
+                <span className="hidden xl:inline">{currentLanguage?.name}</span>
                 <ChevronDown className="h-3 w-3 ml-1" />
               </Button>
             </DropdownMenuTrigger>
@@ -113,12 +113,12 @@ export default function Header() {
               }`}
             >
               <Download className="mr-2 h-4 w-4" />
-              {t("download")}
+              <span className="hidden sm:inline">{t("download")}</span>
             </Button>
           </motion.div>
         </nav>
 
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           {/* Mobile Language Switcher */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -166,10 +166,10 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden"
+            className="lg:hidden overflow-hidden w-full"
           >
             <nav
-              className={`flex flex-col items-center gap-4 py-4 border-t transition-all duration-300 ${
+              className={`flex flex-col items-center gap-4 py-4 border-t transition-all duration-300 w-full ${
                 isScrolled
                   ? "border-gray-200 bg-white/90 backdrop-blur-xl"
                   : "border-white/20 bg-white/10 backdrop-blur-md"
