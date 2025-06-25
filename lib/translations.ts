@@ -37,6 +37,8 @@ export const translations = {
     headphonesDesc: "Качественный звук для музыки",
     smartphone: "Смартфон",
     smartphoneDesc: "Новейшие технологии в твоих руках",
+    travel: "Путешествие",
+    travelDesc: "Незабываемые приключения и отдых",
     progress: "Прогресс",
     bottles: "бутылок",
     learnMore: "Узнать больше",
@@ -153,6 +155,44 @@ export const translations = {
     privacy: "Политика конфиденциальности",
     footerDescription:
       "Yaxshi.Link — это не просто приложение, это движение за чистую планету. Присоединяйся к тысячам людей, которые уже делают мир лучше!",
+
+    // How to participate
+    howToParticipate: "Как участвовать в бонусной программе?",
+    bonusProgram: "Бонусная программа",
+    fourSimpleSteps: "Всего 4 простых шага к экологичному будущему!",
+    handInWaste: "Сдать тару",
+    handInWasteDesc: "в фандоматы Yaxshi.Link по всему городу",
+    findFandomats: "Найти фандоматы",
+    registerPhone: "Зарегистрировать номер телефона",
+    registerPhoneDesc:
+      "при сдаче тары в фандомат или на сайте. За каждую сданную бутылку или банку вам будет начислено 10 бонусов.",
+    trackStats: "Следить за статистикой",
+    trackStatsDesc:
+      "и местом в рейтинге всегда можно в профиле участника акции на сайте, авторизовавшись по вашему номеру телефона.",
+    exchangeBonuses: "Обменивать бонусы на реальную выгоду",
+    exchangeBonusesDesc:
+      "в мобильном приложении Yaxshi.Link вы можете конвертировать полученные бонусы на скидки, баллы на карты лояльности и подарки от наших партнеров.",
+    participate: "Принять участие",
+
+    // Fandomat info section
+    smartRecycling: "Умная переработка",
+    fandomat: "Фандомат",
+    fandomatDesc: "Автомат по приёму пластиковых бутылок и банок для дальнейшей переработки.",
+    whatAccepts: "Что принимает фандомат?",
+    plasticBottles: "Пластиковые бутылки и алюминиевые банки",
+    plasticBottlesDesc: "Чистые PET бутылки и алюминиевые банки из-под напитков",
+    noLiquid: "Без жидкости",
+    noLiquidDesc: "Бутылки должны быть пустыми, без остатков жидкости",
+    upTo2L: "Объёмом до 2 литров",
+    upTo2LDesc: "Принимаем тару объёмом от 0.33л до 2л",
+    whyRecycle: "Зачем сдавать тару на переработку?",
+    letsSaveNature: "Давайте вместе сохраним природу для будущих поколений!",
+    saveNatureDesc: "",
+    yearsDecompose: "и более лет эти материалы разлагаются в природе",
+    yearsDecomposeDesc: "",
+    plasticToLandfill: "пластика сегодня отправляется сразу на свалку",
+    plasticToLandfillDesc: "",
+    pollutionWarning: "От загрязнения пластиком погибают миллионы животных и растений",
   },
 
   uz: {
@@ -193,6 +233,8 @@ export const translations = {
     headphonesDesc: "Musiqa uchun sifatli tovush",
     smartphone: "Smartfon",
     smartphoneDesc: "Qo'lingizda eng yangi texnologiyalar",
+    travel: "Sayohat",
+    travelDesc: "Unutilmas sarguzashtlar va dam olish",
     progress: "Jarayon",
     bottles: "shisha",
     learnMore: "Batafsil",
@@ -310,6 +352,44 @@ export const translations = {
     privacy: "Maxfiylik siyosati",
     footerDescription:
       "Yaxshi.Link — bu shunchaki ilova emas, bu toza sayyora uchun harakat. Dunyoni yaxshiroq qilayotgan minglab odamlarga qo'shiling!",
+
+    // How to participate
+    howToParticipate: "Bonus dasturida qanday ishtirok etish mumkin?",
+    bonusProgram: "Bonus dasturi",
+    fourSimpleSteps: "Ekologik kelajakka atigi 4 ta oddiy qadam!",
+    handInWaste: "Idishlarni topshirish",
+    handInWasteDesc: "shahar bo'ylab Yaxshi.Link fandomatlariga",
+    findFandomats: "Fandomatlarni topish",
+    registerPhone: "Telefon raqamini ro'yxatdan o'tkazish",
+    registerPhoneDesc:
+      "fandomatga idish topshirganda yoki saytda. Har bir topshirilgan shisha yoki banka uchun sizga 10 bonus beriladi.",
+    trackStats: "Statistikani kuzatish",
+    trackStatsDesc:
+      "va reytingdagi o'rningizni har doim saytdagi aksiya ishtirokchisi profilida, telefon raqamingiz orqali avtorizatsiya qilib ko'rishingiz mumkin.",
+    exchangeBonuses: "Bonuslarni real foyda uchun almashtirish",
+    exchangeBonusesDesc:
+      "Yaxshi.Link mobil ilovasida olingan bonuslarni chegirmalar, sodiqlik kartalari balllari va hamkorlarimizdan sovg'alarga aylantira olasiz.",
+    participate: "Ishtirok etish",
+
+    // Fandomat info section
+    smartRecycling: "Aqlli qayta ishlash",
+    fandomat: "Fandomat",
+    fandomatDesc: "Plastik shishalar va bankalarni keyingi qayta ishlash uchun qabul qiluvchi avtomat.",
+    whatAccepts: "Fandomat nimalarni qabul qiladi?",
+    plasticBottles: "Plastik shishalar va alyuminiy bankalar",
+    plasticBottlesDesc: "Ichimliklar uchun toza PET shishalar va alyuminiy bankalar",
+    noLiquid: "Suyuqliksiz",
+    noLiquidDesc: "Shishalar bo'sh bo'lishi kerak, suyuqlik qoldiqlari bo'lmasligi kerak",
+    upTo2L: "2 litrgacha hajmda",
+    upTo2LDesc: "0.33l dan 2l gacha hajmdagi idishlarni qabul qilamiz",
+    whyRecycle: "Nima uchun idishlarni qayta ishlashga topshirish kerak?",
+    letsSaveNature: "Keling, kelajak avlodlar uchun tabiatni birgalikda saqlaymiz!",
+    saveNatureDesc: "",
+    yearsDecompose: "va undan ko'p yillar bu materiallar tabiatda parchalanadi",
+    yearsDecomposeDesc: "",
+    plasticToLandfill: "plastik bugun to'g'ridan-to'g'ri chiqindixonaga yuboriladi",
+    plasticToLandfillDesc: "",
+    pollutionWarning: "Plastik ifloslanishidan millionlab hayvon va o'simliklar nobud bo'lmoqda",
   },
 
   en: {
@@ -350,6 +430,8 @@ export const translations = {
     headphonesDesc: "Quality sound for music",
     smartphone: "Smartphone",
     smartphoneDesc: "Latest technology in your hands",
+    travel: "Travel",
+    travelDesc: "Unforgettable adventures and vacation",
     progress: "Progress",
     bottles: "bottles",
     learnMore: "Learn more",
@@ -465,6 +547,44 @@ export const translations = {
     privacy: "Privacy policy",
     footerDescription:
       "Yaxshi.Link is not just an app, it's a movement for a clean planet. Join thousands of people who are already making the world better!",
+
+    // How to participate
+    howToParticipate: "How to participate in the bonus program?",
+    bonusProgram: "Bonus program",
+    fourSimpleSteps: "Just 4 simple steps to an eco-friendly future!",
+    handInWaste: "Hand in containers",
+    handInWasteDesc: "to Yaxshi.Link fandomats throughout the city",
+    findFandomats: "Find fandomats",
+    registerPhone: "Register phone number",
+    registerPhoneDesc:
+      "when handing in containers to fandomat or on the website. For each bottle or can you hand in, you will receive 10 bonuses.",
+    trackStats: "Track statistics",
+    trackStatsDesc:
+      "and your place in the rating can always be viewed in the participant profile on the website by logging in with your phone number.",
+    exchangeBonuses: "Exchange bonuses for real benefits",
+    exchangeBonusesDesc:
+      "in the Yaxshi.Link mobile app you can convert received bonuses to discounts, loyalty card points and gifts from our partners.",
+    participate: "Participate",
+
+    // Fandomat info section
+    smartRecycling: "Smart recycling",
+    fandomat: "Fandomat",
+    fandomatDesc: "Machine for accepting plastic bottles and cans for further recycling.",
+    whatAccepts: "What does the fandomat accept?",
+    plasticBottles: "Plastic bottles and aluminum cans",
+    plasticBottlesDesc: "Clean PET bottles and aluminum cans from beverages",
+    noLiquid: "Without liquid",
+    noLiquidDesc: "Bottles must be empty, without liquid residue",
+    upTo2L: "Up to 2 liters volume",
+    upTo2LDesc: "We accept containers from 0.33l to 2l volume",
+    whyRecycle: "Why hand in containers for recycling?",
+    letsSaveNature: "Let's save nature together for future generations!",
+    saveNatureDesc: "",
+    yearsDecompose: "and more years these materials decompose in nature",
+    yearsDecomposeDesc: "",
+    plasticToLandfill: "of plastic today goes straight to landfill",
+    plasticToLandfillDesc: "",
+    pollutionWarning: "Millions of animals and plants die from plastic pollution",
   },
 }
 

@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 import HeroSection from "@/components/sections/hero-section"
+import FandomatInfoSection from "@/components/sections/fandomat-info-section"
 import HowItWorksSection from "@/components/sections/how-it-works-section"
 import GiftsSection from "@/components/sections/gifts-section"
 import AdvantagesSection from "@/components/sections/advantages-section"
@@ -16,8 +17,9 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <HowItWorksSection />
+        <FandomatInfoSection />
         <GiftsSection />
+        <HowItWorksSection />
         <AdvantagesSection />
         <PartnersSection />
         <StatsSection />

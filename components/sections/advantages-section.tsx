@@ -210,7 +210,7 @@ export default function AdvantagesSection() {
       className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
     >
       {/* Geometric shape between sections */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-yaxshi-accent/10 rounded-full z-20 -translate-x-32" />
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-yaxshi-accent/10 rounded-full z-0 -translate-x-32" />
       <div className="container px-4 md:px-6">
         <motion.h2
           className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-16 text-yaxshi-green"

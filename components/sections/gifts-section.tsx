@@ -8,31 +8,31 @@ import { useLanguage } from "@/hooks/use-language"
 const gifts = [
   {
     name: "drink",
-    bottles: 100,
+    bottles: 10,
     image: "/images/drink-bottle.jpg",
     color: "from-blue-500 to-cyan-500",
     description: "drinkDesc",
   },
   {
     name: "brandedGift",
-    bottles: 500,
+    bottles: 100,
     image: "/images/gifts-3d.jpg",
     color: "from-purple-500 to-pink-500",
     description: "brandedGiftDesc",
   },
   {
-    name: "headphones",
-    bottles: 1000,
-    image: "/images/headphones.png",
-    color: "from-orange-500 to-red-500",
-    description: "headphonesDesc",
-  },
-  {
     name: "smartphone",
-    bottles: 3000,
+    bottles: 1000,
     image: "/images/phone-mockup-1.jpg",
     color: "from-green-500 to-emerald-500",
     description: "smartphoneDesc",
+  },
+  {
+    name: "travel",
+    bottles: 3000,
+    image: "/images/travel-gift.jpg",
+    color: "from-orange-500 to-red-500",
+    description: "travelDesc",
   },
 ]
 

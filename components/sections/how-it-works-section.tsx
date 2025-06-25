@@ -1,58 +1,46 @@
 "use client"
 
-import Image from "next/image"
 import { motion } from "framer-motion"
-import { Zap, PackagePlus, Gift, Recycle } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Smartphone, MapPin, BarChart3, Gift, Sparkles, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/hooks/use-language"
+import Link from "next/link"
 
 const steps = [
   {
-    icon: <Recycle className="h-10 w-10 text-yaxshi-green" />,
-    title: "Принёс",
-    description: "Собери пластиковые или алюминиевые бутылки.",
+    number: "01",
+    title: "handInWaste",
+    description: "handInWasteDesc",
+    buttonText: "findFandomats",
+    icon: <MapPin className="h-8 w-8" />,
+    color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: <PackagePlus className="h-10 w-10 text-yaxshi-green" />,
-    title: "Сдал",
-    description: "Сдай их в ближайший фандомат Yaxshi.Link.",
+    number: "02",
+    title: "registerPhone",
+    description: "registerPhoneDesc",
+    icon: <Smartphone className="h-8 w-8" />,
+    color: "from-green-500 to-emerald-500",
   },
   {
-    icon: <Zap className="h-10 w-10 text-yaxshi-green" />,
-    title: "Получил баллы",
-    description: "Получи баллы на свой счёт в приложении.",
+    number: "03",
+    title: "trackStats",
+    description: "trackStatsDesc",
+    icon: <BarChart3 className="h-8 w-8" />,
+    color: "from-purple-500 to-pink-500",
   },
   {
-    icon: <Gift className="h-10 w-10 text-yaxshi-green" />,
-    title: "Обменял",
-    description: "Обменяй баллы на крутые подарки и скидки!",
+    number: "04",
+    title: "exchangeBonuses",
+    description: "exchangeBonusesDesc",
+    icon: <Gift className="h-8 w-8" />,
+    color: "from-orange-500 to-red-500",
   },
 ]
 
 export default function HowItWorksSection() {
   const { t } = useLanguage()
-
-  const steps = [
-    {
-      icon: <Recycle className="h-10 w-10 text-yaxshi-green" />,
-      title: t("brought"),
-      description: t("broughtDesc"),
-    },
-    {
-      icon: <PackagePlus className="h-10 w-10 text-yaxshi-green" />,
-      title: t("handed"),
-      description: t("handedDesc"),
-    },
-    {
-      icon: <Zap className="h-10 w-10 text-yaxshi-green" />,
-      title: t("gotPoints"),
-      description: t("gotPointsDesc"),
-    },
-    {
-      icon: <Gift className="h-10 w-10 text-yaxshi-green" />,
-      title: t("exchanged"),
-      description: t("exchangedDesc"),
-    },
-  ]
 
   const sectionVariants = {
     hidden: { opacity: 0 },
@@ -63,83 +51,142 @@ export default function HowItWorksSection() {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  }
+
+  const floatingVariants = {
+    animate: {
+      y: [0, -10, 0],
+      transition: {
+        duration: 3,
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "easeInOut",
+      },
+    },
   }
 
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-background">
-      <div className="container px-4 md:px-6">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-yaxshi-green via-yaxshi-green-light to-green-600 text-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={sectionVariants}
+          className="absolute top-20 left-20 w-64 h-64 bg-white/10 rounded-full"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-20 w-48 h-48 bg-yaxshi-accent/20 rounded-full"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+        />
+      </div>
+
+      <div className="container px-4 md:px-6 relative z-10">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.h2
-            className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-4 text-yaxshi-green"
-            variants={itemVariants}
+          <motion.div
+            className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full mb-4"
+            whileHover={{ scale: 1.05 }}
           >
-            {t("howItWorksTitle")}
-          </motion.h2>
-          <motion.p
-            className="mx-auto max-w-[700px] text-muted-foreground md:text-xl text-center mb-12"
-            variants={itemVariants}
-          >
-            {t("howItWorksSubtitle")}
-          </motion.p>
+            <Sparkles className="h-5 w-5 text-white" />
+            <span className="text-white font-medium">{t("bonusProgram")}</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">{t("howToParticipate")}</h2>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">{t("fourSimpleSteps")}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 50 }}
-            className="relative aspect-square max-w-md mx-auto"
-          >
-            <Image
-              src="/images/fandomat-no-bg.png"
-              alt="Фандомат Yaxshi.Link"
-              width={500}
-              height={500}
-              className="object-contain transform transition-all duration-500 hover:scale-105 drop-shadow-2xl"
-            />
-            <motion.div
-              className="absolute -top-8 -left-8 w-24 h-24 bg-yaxshi-green-light rounded-full opacity-50 animate-blob-morph"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="absolute -bottom-8 -right-8 w-32 h-32 bg-yaxshi-accent rounded-2xl opacity-30 animate-blob-morph animation-delay-3000"
-              style={{ animationDelay: "3s" }}
-              animate={{ rotate: [0, 20, 0] }}
-              transition={{ duration: 9, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            />
-          </motion.div>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+        >
+          {steps.map((step, index) => (
+            <motion.div key={index} variants={itemVariants} whileHover={{ y: -10 }} className="group">
+              <Card className="h-full bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 transition-all duration-300 overflow-hidden">
+                <CardContent className="p-6 text-center space-y-6">
+                  <div className="flex flex-col items-center">
+                    <motion.div
+                      className="text-6xl font-bold text-white/30 mb-4"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: index * 0.5 }}
+                    >
+                      {step.number}
+                    </motion.div>
+                    <motion.div
+                      className={`w-20 h-20 bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                      variants={floatingVariants}
+                      animate="animate"
+                      style={{ animationDelay: `${index * 0.5}s` }}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    >
+                      <div className="text-white">{step.icon}</div>
+                    </motion.div>
+                  </div>
 
-          <motion.div
-            className="space-y-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={sectionVariants}
-          >
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted transition-colors"
-                variants={itemVariants}
-              >
-                <div className="flex-shrink-0 bg-yaxshi-green-light/20 p-3 rounded-full">{step.icon}</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-1">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-gray-900 transition-colors">
+                    {t(step.title)}
+                  </h3>
+
+                  <p className="text-white/80 text-sm leading-relaxed">{t(step.description)}</p>
+
+                  {step.buttonText && (
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="pt-4">
+                      <Link href="#faq">
+                        <Button
+                          variant="outline"
+                          className="bg-white/20 border-white/30 text-white hover:bg-white/30 backdrop-blur-sm group"
+                        >
+                          {t(step.buttonText)}
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </Link>
+                    </motion.div>
+                  )}
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              size="lg"
+              className="bg-yaxshi-accent hover:bg-yaxshi-accent/90 text-white px-12 py-4 text-lg font-semibold shadow-xl border-0"
+            >
+              {t("participate")}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

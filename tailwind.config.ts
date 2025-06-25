@@ -79,15 +79,27 @@ const config = {
           "0%, 100%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
           "50%": { borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%" },
         },
+        "float-up": {
+          "0%": { transform: "translateY(100px) rotate(0deg)", opacity: "0" },
+          "50%": { opacity: "1" },
+          "100%": { transform: "translateY(-100px) rotate(360deg)", opacity: "0" },
+        },
+        "float-diagonal": {
+          "0%": { transform: "translate(0, 100px) rotate(0deg)", opacity: "0" },
+          "50%": { opacity: "0.7" },
+          "100%": { transform: "translate(50px, -100px) rotate(180deg)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "subtle-float": "subtle-float 6s ease-in-out infinite",
         "blob-morph": "blob-morph 8s ease-in-out infinite",
+        "float-up": "float-up 8s linear infinite",
+        "float-diagonal": "float-diagonal 10s linear infinite",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
+        sans: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
         mono: ["var(--font-geist-mono)"],
       },
     },
