@@ -187,7 +187,8 @@ const config = {
         "pulse-glow": "pulse-glow 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite",
       },
       fontFamily: {
-        sans: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        sans: ['Arial Rounded MT Pro Cyr', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'arial-rounded': ['Arial Rounded MT Pro Cyr', 'sans-serif'],
         mono: ["var(--font-geist-mono)"],
       },
       willChange: {

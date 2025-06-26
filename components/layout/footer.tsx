@@ -184,8 +184,12 @@ export default function Footer() {
                       <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-yaxshi-green" />
                     </div>
                     <div className="min-w-0">
+                    <a href="tel:+998901756707">
                       <p className="font-medium text-sm sm:text-base">{t("phone")}</p>
-                      <p className="text-xs sm:text-sm truncate">+998 XX XXX XX XX</p>
+                      <p className="text-xs sm:text-sm truncate">
+                        +998 90 175-67-07
+                      </p>
+                      </a>
                     </div>
                   </motion.div>
                   <motion.div className="flex items-center space-x-3 text-gray-300" whileHover={{ x: 5 }}>

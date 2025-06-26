@@ -15,7 +15,12 @@ export const metadata: Metadata = {
   title: "Yaxshi.Link - Сдавай бутылки, получай подарки!",
   description:
     "Приложение Yaxshi.Link: сдавайте пластиковые и алюминиевые бутылки в фандоматы, получайте бонусы и деньги. Узнайте больше, скачайте приложение и становитесь партнером.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export default function RootLayout({

@@ -135,52 +135,52 @@ export default function HeroSection() {
       {/* Gradient overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10" />
 
-      <div className="container relative z-10 px-4 sm:px-6 py-4 sm:py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
           {/* Left side - Text content */}
-          <div className="space-y-4 sm:space-y-6 order-2 lg:order-1 text-center lg:text-left">
+          <div className="space-y-5 sm:space-y-7 order-2 lg:order-1 text-center lg:text-left">
             <SmoothMotion variant="fadeIn" delay={0.2}>
               <OptimizedImage
                 src="/logos/yaxshi-logo-for-green.png"
                 alt="Yaxshi.Link Logo"
-                width={240}
-                height={80}
+                width={320}
+                height={110}
                 priority
-                sizes="(max-width: 768px) 180px, 240px"
-                className="mb-4 sm:mb-6 filter drop-shadow-lg w-38 sm:w-40 md:w-48 lg:w-60 mx-auto lg:mx-0"
+                sizes="(max-width: 768px) 240px, 320px"
+                className="filter drop-shadow-lg w-48 sm:w-52 md:w-60 lg:w-72 mx-auto lg:mx-0"
               />
             </SmoothMotion>
 
             <SmoothMotion variant="slideUp" delay={0.4}>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide drop-shadow-lg">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide drop-shadow-lg leading-tight">
                 {t("heroTitle")}
               </h1>
             </SmoothMotion>
 
             <SmoothMotion variant="fadeIn" delay={0.6}>
-              <p className="max-w-[600px] text-base sm:text-lg md:text-xl drop-shadow-sm text-white/95 mx-auto lg:mx-0">
+              <p className="max-w-[650px] text-base sm:text-lg md:text-xl lg:text-2xl drop-shadow-sm text-white/95 mx-auto lg:mx-0 leading-relaxed">
                 {t("heroSubtitle")}
               </p>
             </SmoothMotion>
 
             <SmoothMotion variant="slideUp" delay={0.8}>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 pt-3 justify-center lg:justify-start">
                 <HoverMotion scale={1.05} y={-2} className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl font-semibold transition-all duration-300 ease-bounce-soft"
+                    className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl font-semibold transition-all duration-300 ease-bounce-soft text-base px-6 py-4 h-auto"
                   >
                     <AppleIcon />
-                    <span className="ml-2">App Store</span>
+                    <span className="ml-2 text-lg">App Store</span>
                   </Button>
                 </HoverMotion>
                 <HoverMotion scale={1.05} y={-2} className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl font-semibold transition-all duration-300 ease-bounce-soft"
+                    className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl font-semibold transition-all duration-300 ease-bounce-soft text-base px-6 py-4 h-auto"
                   >
                     <AndroidIcon />
-                    <span className="ml-2">Google Play</span>
+                    <span className="ml-2 text-lg">Google Play</span>
                   </Button>
                 </HoverMotion>
               </div>
@@ -193,11 +193,11 @@ export default function HeroSection() {
               <OptimizedImage
                 src="/images/fandomat-hq.png"
                 alt="Фандомат Yaxshi.Link"
-                width={350}
-                height={450}
+                width={380}
+                height={490}
                 priority
-                sizes="(max-width: 640px) 240px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 350px"
-                className="object-contain drop-shadow-2xl max-w-full h-auto w-60 sm:w-80 md:w-96 lg:w-[350px] lg:mr-10"
+                sizes="(max-width: 640px) 260px, (max-width: 768px) 340px, (max-width: 1024px) 420px, 380px"
+                className="object-contain drop-shadow-2xl max-w-full h-auto w-64 sm:w-80 md:w-96 lg:w-[380px] lg:mr-10"
               />
 
               {/* Optimized glow effect */}
