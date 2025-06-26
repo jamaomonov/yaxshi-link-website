@@ -34,7 +34,7 @@ const categories = [
     id: "map",
     name: "fandomatMap",
     icon: <MapPin className="h-5 w-5" />,
-    color: "from-yaxshi-green to-yaxshi-green-light",
+    color: "from-green-500 to-emerald-500",
   },
 ]
 

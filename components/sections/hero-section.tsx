@@ -2,8 +2,11 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { useLanguage } from "@/hooks/use-language"
+import { OptimizedImage } from "@/components/ui/optimized-image"
+import { SmoothMotion, HoverMotion } from "@/components/ui/smooth-animations"
+import { memo, useMemo } from "react"
 
 // Apple and Android SVG icons
 const AppleIcon = () => (
@@ -14,12 +17,12 @@ const AppleIcon = () => (
 
 const AndroidIcon = () => (
   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396" />
+    <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396" />
   </svg>
 )
 
-// Floating bottle component with PNG
-const FloatingBottle = ({
+// Оптимизированный компонент падающей бутылки
+const FloatingBottle = memo(({
   delay,
   duration,
   startX,
@@ -35,207 +38,98 @@ const FloatingBottle = ({
   startY: number
   endY: number
   size?: string
-}) => (
-  <motion.div
-    className={`absolute ${size} opacity-80`}
-    style={{ left: `${startX}%`, top: startY }}
-    initial={{
-      x: 0,
-      y: 0,
-      rotate: 0,
-      opacity: 0,
-    }}
-    animate={{
-      x: `${endX - startX}vw`,
-      y: endY - startY,
-      rotate: 360,
-      opacity: [0, 1, 0],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Number.POSITIVE_INFINITY,
-      ease: "linear",
-    }}
-  >
-    <Image
-      src="/icons/bottle.png"
-      alt="Бутылка"
-      fill
-      style={{ objectFit: "contain" }}
-      sizes="100vw"
-      className="pointer-events-none select-none"
-    />
-  </motion.div>
-)
+}) => {
+  const shouldReduceMotion = useReducedMotion()
+  
+  if (shouldReduceMotion) {
+    return null
+  }
+
+  return (
+    <motion.div
+      className={`absolute ${size} opacity-80 will-change-transform`}
+      style={{ left: `${startX}%`, top: startY }}
+      initial={{
+        x: 0,
+        y: 0,
+        rotate: 0,
+        opacity: 0,
+      }}
+      animate={{
+        x: `${endX - startX}vw`,
+        y: endY - startY,
+        rotate: 360,
+        opacity: [0, 1, 0],
+      }}
+      transition={{
+        duration,
+        delay,
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "linear",
+        repeatType: "loop",
+      }}
+    >
+      <Image
+        src="/icons/bottle.png"
+        alt="Бутылка"
+        fill
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 32px, 48px"
+        className="pointer-events-none select-none"
+      />
+    </motion.div>
+  )
+})
+
+FloatingBottle.displayName = "FloatingBottle"
 
 export default function HeroSection() {
   const { t } = useLanguage()
+  const shouldReduceMotion = useReducedMotion()
+
+  // Мемоизируем конфигурацию бутылок для лучшей производительности
+  const bottleConfigs = useMemo(() => [
+    { delay: 0, duration: 8, startX: 10, endX: 15, startY: -100, endY: 800, size: "w-8 h-16 sm:w-10 sm:h-20" },
+    { delay: 2, duration: 10, startX: 25, endX: 20, startY: -100, endY: 800, size: "w-6 h-12 sm:w-8 sm:h-16" },
+    { delay: 4, duration: 9, startX: 40, endX: 45, startY: -100, endY: 800, size: "w-10 h-20 sm:w-12 sm:h-24" },
+    { delay: 1, duration: 11, startX: 55, endX: 50, startY: -100, endY: 800, size: "w-12 h-24 sm:w-14 sm:h-28" },
+    { delay: 3, duration: 7, startX: 70, endX: 75, startY: -100, endY: 800, size: "w-8 h-10 sm:w-10 sm:h-12" },
+    { delay: 5, duration: 9, startX: 85, endX: 80, startY: -100, endY: 800, size: "w-6 h-8 sm:w-8 sm:h-10" },
+    { delay: 6, duration: 12, startX: 5, endX: 10, startY: -100, endY: 800, size: "w-8 h-16 sm:w-10 sm:h-20" },
+    { delay: 8, duration: 8, startX: 30, endX: 35, startY: -100, endY: 800, size: "w-6 h-12 sm:w-8 sm:h-16" },
+    { delay: 7, duration: 11, startX: 60, endX: 65, startY: -100, endY: 800, size: "w-8 h-10 sm:w-10 sm:h-12" },
+    { delay: 9, duration: 9, startX: 80, endX: 85, startY: -100, endY: 800, size: "w-10 h-20 sm:w-12 sm:h-24" },
+    { delay: 10, duration: 10, startX: 15, endX: 20, startY: -100, endY: 800, size: "w-7 h-14 sm:w-9 sm:h-18" },
+    { delay: 11, duration: 8, startX: 45, endX: 40, startY: -100, endY: 800, size: "w-9 h-18 sm:w-11 sm:h-22" },
+    { delay: 12, duration: 11, startX: 75, endX: 70, startY: -100, endY: 800, size: "w-6 h-12 sm:w-8 sm:h-16" },
+    { delay: 13, duration: 9, startX: 90, endX: 95, startY: -100, endY: 800, size: "w-8 h-16 sm:w-10 sm:h-20" },
+    { delay: 14, duration: 7, startX: 35, endX: 30, startY: -100, endY: 800, size: "w-10 h-20 sm:w-12 sm:h-24" },
+    { delay: 15, duration: 12, startX: 65, endX: 60, startY: -100, endY: 800, size: "w-7 h-14 sm:w-9 sm:h-18" },
+  ], [])
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-yaxshi-green-light via-yaxshi-green to-green-400 text-white pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-24 md:pb-16">
-      {/* Animated background shapes */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-white/10 rounded-full animate-blob-morph"
-        animate={{ scale: [1, 1.1, 1], rotate: [0, 15, 0] }}
-        transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-64 sm:h-64 bg-white/5 rounded-2xl animate-blob-morph animation-delay-2000"
-        style={{ animationDelay: "2s" }}
-        animate={{ scale: [1, 0.9, 1], rotate: [0, -10, 0] }}
-        transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      />
+      {/* Optimized animated background shapes */}
+      {!shouldReduceMotion && (
+        <>
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-white/10 rounded-full will-change-transform"
+            animate={{ scale: [1, 1.1, 1], rotate: [0, 15, 0] }}
+            transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", repeatType: "reverse" }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-64 sm:h-64 bg-white/5 rounded-2xl will-change-transform"
+            animate={{ scale: [1, 0.9, 1], rotate: [0, -10, 0] }}
+            transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2, repeatType: "reverse" }}
+          />
+        </>
+      )}
 
-      {/* Floating bottles and cans - Responsive positioning */}
+      {/* Optimized floating bottles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Bottles floating from top to bottom */}
-        <FloatingBottle
-          delay={0}
-          duration={8}
-          startX={10}
-          endX={15}
-          startY={-100}
-          endY={800}
-          size="w-8 h-16 sm:w-10 sm:h-20"
-        />
-        <FloatingBottle
-          delay={2}
-          duration={10}
-          startX={25}
-          endX={20}
-          startY={-100}
-          endY={800}
-          size="w-6 h-12 sm:w-8 sm:h-16"
-        />
-        <FloatingBottle
-          delay={4}
-          duration={9}
-          startX={40}
-          endX={45}
-          startY={-100}
-          endY={800}
-          size="w-10 h-20 sm:w-12 sm:h-24"
-        />
-        <FloatingBottle
-          delay={1}
-          duration={11}
-          startX={55}
-          endX={50}
-          startY={-100}
-          endY={800}
-          size="w-12 h-24 sm:w-14 sm:h-28"
-        />
-        <FloatingBottle
-          delay={3}
-          duration={7}
-          startX={70}
-          endX={75}
-          startY={-100}
-          endY={800}
-          size="w-8 h-10 sm:w-10 sm:h-12"
-        />
-        <FloatingBottle
-          delay={5}
-          duration={9}
-          startX={85}
-          endX={80}
-          startY={-100}
-          endY={800}
-          size="w-6 h-8 sm:w-8 sm:h-10"
-        />
-
-        {/* More bottles with different trajectories */}
-        <FloatingBottle
-          delay={6}
-          duration={12}
-          startX={5}
-          endX={10}
-          startY={-100}
-          endY={800}
-          size="w-8 h-16 sm:w-10 sm:h-20"
-        />
-        <FloatingBottle
-          delay={8}
-          duration={8}
-          startX={30}
-          endX={35}
-          startY={-100}
-          endY={800}
-          size="w-6 h-12 sm:w-8 sm:h-16"
-        />
-        <FloatingBottle
-          delay={7}
-          duration={11}
-          startX={60}
-          endX={65}
-          startY={-100}
-          endY={800}
-          size="w-8 h-10 sm:w-10 sm:h-12"
-        />
-        <FloatingBottle
-          delay={9}
-          duration={9}
-          startX={80}
-          endX={85}
-          startY={-100}
-          endY={800}
-          size="w-10 h-20 sm:w-12 sm:h-24"
-        />
-        <FloatingBottle
-          delay={10}
-          duration={10}
-          startX={15}
-          endX={20}
-          startY={-100}
-          endY={800}
-          size="w-7 h-14 sm:w-9 sm:h-18"
-        />
-        <FloatingBottle
-          delay={11}
-          duration={8}
-          startX={45}
-          endX={40}
-          startY={-100}
-          endY={800}
-          size="w-9 h-18 sm:w-11 sm:h-22"
-        />
-        <FloatingBottle
-          delay={12}
-          duration={11}
-          startX={75}
-          endX={70}
-          startY={-100}
-          endY={800}
-          size="w-6 h-12 sm:w-8 sm:h-16"
-        />
-        <FloatingBottle
-          delay={13}
-          duration={9}
-          startX={90}
-          endX={95}
-          startY={-100}
-          endY={800}
-          size="w-8 h-16 sm:w-10 sm:h-20"
-        />
-        <FloatingBottle
-          delay={14}
-          duration={7}
-          startX={35}
-          endX={30}
-          startY={-100}
-          endY={800}
-          size="w-10 h-20 sm:w-12 sm:h-24"
-        />
-        <FloatingBottle
-          delay={15}
-          duration={12}
-          startX={65}
-          endX={60}
-          startY={-100}
-          endY={800}
-          size="w-7 h-14 sm:w-9 sm:h-18"
-        />
+        {bottleConfigs.map((config, index) => (
+          <FloatingBottle key={index} {...config} />
+        ))}
       </div>
 
       {/* Gradient overlay for better text readability */}
@@ -244,104 +138,86 @@ export default function HeroSection() {
       <div className="container relative z-10 px-4 sm:px-6 py-4 sm:py-8">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
           {/* Left side - Text content */}
-          <motion.div
-            className="space-y-4 sm:space-y-6 order-2 lg:order-1 text-center lg:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex justify-center lg:justify-start"
-            >
-              <Image
+          <div className="space-y-4 sm:space-y-6 order-2 lg:order-1 text-center lg:text-left">
+            <SmoothMotion variant="fadeIn" delay={0.2}>
+              <OptimizedImage
                 src="/logos/yaxshi-logo-for-green.png"
                 alt="Yaxshi.Link Logo"
-                width={180}
-                height={60}
-                className="mb-4 sm:mb-6 filter drop-shadow-lg w-38 sm:w-40 md:w-48 lg:w-60"
+                width={240}
+                height={80}
+                priority
+                sizes="(max-width: 768px) 180px, 240px"
+                className="mb-4 sm:mb-6 filter drop-shadow-lg w-38 sm:w-40 md:w-48 lg:w-60 mx-auto lg:mx-0"
               />
-            </motion.div>
+            </SmoothMotion>
 
-            <motion.h1
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide drop-shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              {t("heroTitle")}
-            </motion.h1>
+            <SmoothMotion variant="slideUp" delay={0.4}>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide drop-shadow-lg">
+                {t("heroTitle")}
+              </h1>
+            </SmoothMotion>
 
-            <motion.p
-              className="max-w-[600px] text-base sm:text-lg md:text-xl drop-shadow-sm text-white/95 mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              {t("heroSubtitle")}
-            </motion.p>
+            <SmoothMotion variant="fadeIn" delay={0.6}>
+              <p className="max-w-[600px] text-base sm:text-lg md:text-xl drop-shadow-sm text-white/95 mx-auto lg:mx-0">
+                {t("heroSubtitle")}
+              </p>
+            </SmoothMotion>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 justify-center lg:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-            >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl transform transition-all duration-200 backdrop-blur-sm font-semibold"
-                >
-                  <AppleIcon />
-                  <span className="ml-2">App Store</span>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl transform transition-all duration-200 backdrop-blur-sm font-semibold"
-                >
-                  <AndroidIcon />
-                  <span className="ml-2">Google Play</span>
-                </Button>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+            <SmoothMotion variant="slideUp" delay={0.8}>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
+                <HoverMotion scale={1.05} y={-2} className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl font-semibold transition-all duration-300 ease-bounce-soft"
+                  >
+                    <AppleIcon />
+                    <span className="ml-2">App Store</span>
+                  </Button>
+                </HoverMotion>
+                <HoverMotion scale={1.05} y={-2} className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="bg-white text-yaxshi-green hover:bg-gray-100 w-full sm:w-auto max-w-xs shadow-xl font-semibold transition-all duration-300 ease-bounce-soft"
+                  >
+                    <AndroidIcon />
+                    <span className="ml-2">Google Play</span>
+                  </Button>
+                </HoverMotion>
+              </div>
+            </SmoothMotion>
+          </div>
 
           {/* Right side - Fandomat */}
-          <motion.div
-            className="relative flex justify-center lg:justify-end order-1 lg:order-2"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
-              <Image
+          <SmoothMotion variant="slideLeft" delay={0.4} className="relative flex justify-center lg:justify-end order-1 lg:order-2">
+            <HoverMotion scale={1.02} duration={0.3} className="relative">
+              <OptimizedImage
                 src="/images/fandomat-hq.png"
                 alt="Фандомат Yaxshi.Link"
                 width={350}
                 height={450}
-                className="object-contain transform transition-all duration-500 drop-shadow-2xl max-w-full h-auto w-60 sm:w-80 md:w-96 lg:w-[350px] lg:mr-10"
                 priority
+                sizes="(max-width: 640px) 240px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 350px"
+                className="object-contain drop-shadow-2xl max-w-full h-auto w-60 sm:w-80 md:w-96 lg:w-[350px] lg:mr-10"
               />
 
-              {/* Glow effect behind fandomat */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-yaxshi-green/30 to-yaxshi-green-light/30 rounded-3xl blur-3xl -z-10"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              />
-            </motion.div>
-          </motion.div>
+              {/* Optimized glow effect */}
+              {!shouldReduceMotion && (
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-yaxshi-green/30 to-yaxshi-green-light/30 rounded-3xl blur-3xl -z-10 will-change-transform"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                    repeatType: "reverse",
+                  }}
+                />
+              )}
+            </HoverMotion>
+          </SmoothMotion>
         </div>
       </div>
     </section>
