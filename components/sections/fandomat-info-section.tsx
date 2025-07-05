@@ -4,25 +4,26 @@ import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, XCircle, Recycle, Sparkles, Package, Droplets, Ruler } from "lucide-react"
 import { useLanguage } from "@/hooks/use-language"
 import { TranslationKey } from "@/lib/translations"
+import Image from "next/image"
 
 export default function FandomatInfoSection() {
   const { t } = useLanguage()
 
   const acceptedItems = [
     {
-      icon: <Package className="h-6 w-6 sm:h-8 sm:w-8" />,
+      image: <img src="/images/fandomat_use_01.png" alt="Plastic Bottles" className="w-32 h-32 sm:w-32 sm:h-32 object-contain"/>,
       title: "plasticBottles" as TranslationKey,
       description: "plasticBottlesDesc" as TranslationKey,
-      color: "from-blue-500 to-cyan-500",
+      color: "transparent",
     },
     {
-      icon: <Droplets className="h-6 w-6 sm:h-8 sm:w-8" />,
+      image: <img src="/images/fandomat_use_01.png" alt="Plastic Bottles" className="w-32 h-32 sm:w-32 sm:h-32 object-contain"/>,
       title: "noLiquid" as TranslationKey,
       description: "noLiquidDesc" as TranslationKey,
       color: "from-green-500 to-emerald-500",
     },
     {
-      icon: <Ruler className="h-6 w-6 sm:h-8 sm:w-8" />,
+      image: <img src="/images/fandomat_use_01.png" alt="Plastic Bottles" className="w-32 h-32 sm:w-32 sm:h-32 object-contain"/>,
       title: "upTo2L" as TranslationKey,
       description: "upTo2LDesc" as TranslationKey,
       color: "from-purple-500 to-pink-500",
@@ -120,7 +121,7 @@ export default function FandomatInfoSection() {
 
         {/* Horizontal layout */}
         <div className="space-y-8 sm:space-y-12">
-          {/* What fandomat accepts - Horizontal */}
+          {/* How to use fandomat - Horizontal */}
           <motion.div 
             initial="hidden" 
             whileInView="visible" 
@@ -129,97 +130,43 @@ export default function FandomatInfoSection() {
             className="text-center"
           >
             <motion.h3
-              className="text-xl sm:text-2xl md:text-3xl font-bold text-yaxshi-green mb-6 sm:mb-8 flex items-center justify-center gap-2 sm:gap-3"
+              className="text-xl sm:text-2xl md:text-3xl font-bold text-yaxshi-green mb-6 sm:mb-8"
               variants={itemVariants}
             >
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-              >
-                <CheckCircle className="h-7 w-7 sm:h-8 sm:w-8" />
-              </motion.div>
-              {t("whatAccepts")}
+              {t("fandomatHowToTitle")}
             </motion.h3>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {acceptedItems.map((item, index) => (
-                <motion.div key={index} variants={itemVariants} whileHover={{ scale: 1.02, y: -5 }}>
-                  <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm h-full">
-                    <CardContent className="p-4 sm:p-6 text-center">
-                      <motion.div
-                        className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center shadow-lg mx-auto mb-4`}
-                        whileHover={{ rotate: 5, scale: 1.1 }}
-                      >
-                        <div className="text-white">{item.icon}</div>
-                      </motion.div>
-                      <h4 className="font-bold text-base sm:text-lg md:text-xl text-foreground mb-2">{t(item.title)}</h4>
-                      <p className="text-muted-foreground text-sm sm:text-base">{t(item.description)}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Why recycle - Horizontal */}
-          <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }} 
-            variants={sectionVariants}
-            className="text-center"
-          >
-            <motion.h3
-              className="text-xl sm:text-2xl md:text-3xl font-bold text-yaxshi-green mb-6 sm:mb-8 flex items-center justify-center gap-2 sm:gap-3"
-              variants={itemVariants}
-            >
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-              >
-                <Recycle className="h-7 w-7 sm:h-8 sm:w-8" />
+              {/* Step 1 */}
+              <motion.div variants={itemVariants} whileHover={{ scale: 1.02, y: -5 }}>
+                <Card className="overflow-hidden border-0 shadow-2xl bg-white/80 backdrop-blur-sm h-full">
+                  <CardContent className="p-6 text-center flex flex-col items-center">
+                    <img src="/images/fandomat_use_01.png" alt="QR" className="w-32 h-32 sm:w-32 sm:h-32 object-contain mb-4" />
+                    <h4 className="font-bold text-base sm:text-lg md:text-xl text-foreground mb-2">{t("fandomatHowToStep1Title")}</h4>
+                    <p className="text-muted-foreground text-sm sm:text-base">{t("fandomatHowToStep1Desc")}</p>
+                  </CardContent>
+                </Card>
               </motion.div>
-              {t("whyRecycle")}
-            </motion.h3>
-
-            <motion.div
-              className="bg-gradient-to-br from-yaxshi-green to-yaxshi-green-light p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-white shadow-2xl relative overflow-hidden max-w-4xl mx-auto"
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-white/10"
-                animate={{
-                  background: [
-                    "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                    "radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                    "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                  ],
-                }}
-                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-              />
-              <div className="relative z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-                  {whyRecycle.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex flex-col items-center text-center"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <motion.div
-                        className={`text-5xl sm:text-6xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent mb-3`}
-                      >
-                        {item.number}
-                      </motion.div>
-                      <h4 className="font-bold text-lg sm:text-xl mb-2">{t(item.text)}</h4>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              <p className="text-white/90 text-lg font-bold leading-relaxed mt-4">{t("pollutionWarning")}</p>
-              <p className="text-white/90 text-lg font-bold leading-relaxed">{t("letsSaveNature")}</p>
-            </motion.div>
+              {/* Step 2 */}
+              <motion.div variants={itemVariants} whileHover={{ scale: 1.02, y: -5 }}>
+                <Card className="overflow-hidden border-0 shadow-2xl bg-white/80 backdrop-blur-sm h-full">
+                  <CardContent className="p-6 text-center flex flex-col items-center">
+                    <img src="/images/fandomat_use_02.png" alt="Bottles" className="w-32 h-32 sm:w-32 sm:h-32 object-contain mb-4" />
+                    <h4 className="font-bold text-base sm:text-lg md:text-xl text-foreground mb-2">{t("fandomatHowToStep2Title")}</h4>
+                    <p className="text-muted-foreground text-sm sm:text-base">{t("fandomatHowToStep2Desc")}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              {/* Step 3 */}
+              <motion.div variants={itemVariants} whileHover={{ scale: 1.02, y: -5 }}>
+                <Card className="overflow-hidden border-0 shadow-2xl bg-white/80 backdrop-blur-sm h-full">
+                  <CardContent className="p-6 text-center flex flex-col items-center">
+                    <img src="/images/fandomat_use_03.png" alt="App" className="w-32 h-32 sm:w-32 sm:h-32 object-contain mb-4" />
+                    <h4 className="font-bold text-base sm:text-lg md:text-xl text-foreground mb-2">{t("fandomatHowToStep3Title")}</h4>
+                    <p className="text-muted-foreground text-sm sm:text-base">{t("fandomatHowToStep3Desc")}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

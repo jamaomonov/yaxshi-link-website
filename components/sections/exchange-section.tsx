@@ -80,12 +80,12 @@ export default function ExchangeSection() {
                   whileHover={{ scale: 1.02 }}
                   className="flex items-center gap-6 p-6 bg-gray-50 rounded-2xl"
                 >
-                  <div className="w-16 h-16 flex-shrink-0">
+                  <div className="w-32 h-32 sm:w-32 sm:h-32 flex-shrink-0">
                     <Image
                       src={item.icon || "/placeholder.svg"}
                       alt={t(item.title)}
-                      width={64}
-                      height={64}
+                      width={128}
+                      height={128}
                       className="object-contain"
                     />
                   </div>

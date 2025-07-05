@@ -194,52 +194,6 @@ export default function GiftsSection() {
           ))}
         </div>
 
-        {/* App mockup section */}
-        <motion.div
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className="bg-gradient-to-r from-yaxshi-green to-yaxshi-green-light p-8 rounded-3xl text-white relative overflow-hidden">
-            <motion.div
-              className="absolute inset-0 bg-white/10"
-              animate={{
-                background: [
-                  "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                  "radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                  "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                ],
-              }}
-              transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-            />
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-4">{t("trackProgress")}</h3>
-              <p className="text-white/80 mb-6">{t("trackProgressDesc")}</p>
-              <div className="flex justify-center gap-6">
-                <motion.div whileHover={{ scale: 1.05, rotateY: 5 }} className="transform-gpu">
-                  <Image
-                    src="/images/phone-mockup-2.png"
-                    alt="App Screen 1"
-                    width={150}
-                    height={300}
-                    className="rounded-2xl shadow-2xl border-4 border-white/20"
-                  />
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05, rotateY: -5 }} className="transform-gpu hidden sm:block">
-                  <Image
-                    src="/images/phone-mockup-2.png"
-                    alt="App Screen 2"
-                    width={150}
-                    height={300}
-                    className="rounded-2xl shadow-2xl border-4 border-white/20"
-                  />
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

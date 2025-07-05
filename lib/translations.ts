@@ -169,7 +169,7 @@ export const translations = {
       "Yaxshi.Link — это не просто приложение, это движение за чистую планету. Присоединяйся к тысячам людей, которые уже делают мир лучше!",
 
     // How to participate
-    howToParticipate: "Как участвовать в бонусной программе?",
+    howToParticipate: "Часто задаваемые вопросы",
     bonusProgram: "Бонусная программа",
     fourSimpleSteps: "Всего 4 простых шага к экологичному будущему!",
     downloadApp: "Скачать приложение yaxshi.link",
@@ -202,6 +202,15 @@ export const translations = {
     plasticToLandfill: "пластика сегодня отправляется сразу на свалку",
     plasticToLandfillDesc: "",
     pollutionWarning: "От загрязнения пластиком погибают миллионы животных и растений",
+
+    // Fandomat How To Section
+    fandomatHowToTitle: "Как пользоваться фандоматом?",
+    fandomatHowToStep1Title: "1. Отсканируйте QR-код фандомата",
+    fandomatHowToStep1Desc: "Поднесите камеру телефона к QR-коду на экране фандомата, чтобы система знала, что это именно вы",
+    fandomatHowToStep2Title: "2. Внесите все бутылки и банки",
+    fandomatHowToStep2Desc: "Положите в приёмник все имеющиеся у вас пластиковые бутылки и алюминиевые банки — одна за другой",
+    fandomatHowToStep3Title: "3. Копите баллы в приложении Yaxshi.link",
+    fandomatHowToStep3Desc: "За каждую сданную бутылку вы получаете баллы прямо в приложении — обменивайте их на подарки!",
   },
 
   uz: {
@@ -375,7 +384,7 @@ export const translations = {
       "Yaxshi.Link — bu shunchaki ilova emas, bu toza sayyora uchun harakat. Dunyoni yaxshiroq qilayotgan minglab odamlarga qo'shiling!",
 
     // How to participate
-    howToParticipate: "Bonus dasturida qanday ishtirok etish mumkin?",
+    howToParticipate: "Tez-tez so'raladigan savollar",
     bonusProgram: "Bonus dasturi",
     fourSimpleSteps: "Ekologik kelajakka atigi 4 ta oddiy qadam!",
     downloadApp: "Yaxshi.link ilovasini yuklab olish",
@@ -408,6 +417,15 @@ export const translations = {
     plasticToLandfill: "plastik bugun to'g'ridan-to'g'ri chiqindixonaga yuboriladi",
     plasticToLandfillDesc: "",
     pollutionWarning: "Plastik ifloslanishidan millionlab hayvon va o'simliklar nobud bo'lmoqda",
+
+    // Fandomat How To Section
+    fandomatHowToTitle: "Fandomatdan qanday foydalaniladi?",
+    fandomatHowToStep1Title: "1. Fandomat QR-kodini skanerlash",
+    fandomatHowToStep1Desc: "Telefon kamerangizni fandomat ekranidagi QR-kodga yaqinlashtiring, tizim bu aynan siz ekanligingizni biladi",
+    fandomatHowToStep2Title: "2. Barcha shisha va bankalarni joylashtiring",
+    fandomatHowToStep2Desc: "Barcha plastik shisha va alyuminiy bankalarni qabul qiluvchi oynaga birma-bir joylashtiring",
+    fandomatHowToStep3Title: "3. Yaxshi.link ilovasida ball to'plang",
+    fandomatHowToStep3Desc: "Har bir topshirilgan shisha uchun ball olasiz — ularni sovg'alarga almashtiring!",
   },
 
   en: {
@@ -579,7 +597,7 @@ export const translations = {
       "Yaxshi.Link is not just an app, it's a movement for a clean planet. Join thousands of people who are already making the world better!",
 
     // How to participate
-    howToParticipate: "How to participate in the bonus program?",
+    howToParticipate: "Frequently Asked Questions",
     bonusProgram: "Bonus program",
     fourSimpleSteps: "Just 4 simple steps to an eco-friendly future!",
     downloadApp: "Download app",
@@ -612,6 +630,15 @@ export const translations = {
     plasticToLandfill: "of plastic today goes straight to landfill",
     plasticToLandfillDesc: "",
     pollutionWarning: "Millions of animals and plants die from plastic pollution",
+
+    // Fandomat How To Section
+    fandomatHowToTitle: "How to use the fandomat?",
+    fandomatHowToStep1Title: "1. Scan the fandomat QR code",
+    fandomatHowToStep1Desc: "Point your phone camera at the QR code on the fandomat screen so the system knows it's you",
+    fandomatHowToStep2Title: "2. Insert all bottles and cans",
+    fandomatHowToStep2Desc: "Place all your plastic bottles and aluminum cans into the receiver — one after another",
+    fandomatHowToStep3Title: "3. Collect points in the Yaxshi.link app",
+    fandomatHowToStep3Desc: "For each bottle you hand in, you get points in the app — exchange them for gifts!",
   },
 }
 
