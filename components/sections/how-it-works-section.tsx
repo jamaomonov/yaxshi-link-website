@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Download, Smartphone, Recycle, Gift, Sparkles, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/hooks/use-language"
 import { TranslationKey } from "@/lib/translations"
-import Link from "next/link"
+import Image from "next/image"
 
 const steps = [
   {
@@ -14,29 +14,25 @@ const steps = [
     title: "downloadApp" as TranslationKey,
     description: "downloadAppDesc" as TranslationKey,
     buttonText: "downloadNow" as TranslationKey,
-    icon: <Download className="h-8 w-8" />,
-    color: "from-blue-500 to-cyan-500",
+    icon: <Image src="/images/how-it-works/download_icon.png" alt="Download App" width={84} height={84} />,
   },
   {
     number: "2",
     title: "registerPhone" as TranslationKey,
     description: "registerPhoneDesc" as TranslationKey,
-    icon: <Smartphone className="h-8 w-8" />,
-    color: "from-green-500 to-emerald-500",
+    icon: <Image src="/images/how-it-works/number_icon.png" alt="Register Phone" width={84} height={84} />,
   },
   {
     number: "3",
     title: "recycleRegularly" as TranslationKey,
     description: "recycleRegularlyDesc" as TranslationKey,
-    icon: <Recycle className="h-8 w-8" />,
-    color: "from-purple-500 to-pink-500",
+    icon: <Image src="/images/how-it-works/hand_over_bottle_icon.png" alt="Recycle" width={84} height={84} />,
   },
   {
     number: "4",
     title: "getRewards" as TranslationKey,
     description: "getRewardsDesc" as TranslationKey,
-    icon: <Gift className="h-8 w-8" />,
-    color: "from-orange-500 to-red-500",
+    icon: <Image src="/images/how-it-works/gift_icon.png" alt="Get Rewards" width={84} height={84} />,
   },
 ]
 
@@ -135,14 +131,7 @@ export default function HowItWorksSection() {
                     >
                       {step.number}
                     </motion.div>
-                    <motion.div
-                      className={`w-20 h-20 bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: index * 0.5 }}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
                       <div className="text-white">{step.icon}</div>
-                    </motion.div>
                   </div>
 
                   <h3 className="text-xl font-bold mb-3 ">

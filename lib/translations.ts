@@ -169,7 +169,7 @@ export const translations = {
       "Yaxshi.Link — это не просто приложение, это движение за чистую планету. Присоединяйся к тысячам людей, которые уже делают мир лучше!",
 
     // How to participate
-    howToParticipate: "Часто задаваемые вопросы",
+    howToParticipate: "Как участвовать в бонусной программе",
     bonusProgram: "Бонусная программа",
     fourSimpleSteps: "Всего 4 простых шага к экологичному будущему!",
     downloadApp: "Скачать приложение yaxshi.link",
@@ -384,7 +384,7 @@ export const translations = {
       "Yaxshi.Link — bu shunchaki ilova emas, bu toza sayyora uchun harakat. Dunyoni yaxshiroq qilayotgan minglab odamlarga qo'shiling!",
 
     // How to participate
-    howToParticipate: "Tez-tez so'raladigan savollar",
+    howToParticipate: "Bonus dasturida qanday ishtirok etish mumkin?",
     bonusProgram: "Bonus dasturi",
     fourSimpleSteps: "Ekologik kelajakka atigi 4 ta oddiy qadam!",
     downloadApp: "Yaxshi.link ilovasini yuklab olish",
@@ -597,7 +597,7 @@ export const translations = {
       "Yaxshi.Link is not just an app, it's a movement for a clean planet. Join thousands of people who are already making the world better!",
 
     // How to participate
-    howToParticipate: "Frequently Asked Questions",
+    howToParticipate: "How to participate in the bonus program",
     bonusProgram: "Bonus program",
     fourSimpleSteps: "Just 4 simple steps to an eco-friendly future!",
     downloadApp: "Download app",
