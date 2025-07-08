@@ -20,13 +20,13 @@ const steps = [
     number: "2",
     title: "registerPhone" as TranslationKey,
     description: "registerPhoneDesc" as TranslationKey,
-    icon: <Image src="/images/how-it-works/number_icon.png" alt="Register Phone" width={84} height={84} />,
+    icon: <Image src="/images/how-it-works/number_icon.png" alt="Register Phone" width={95} height={95} />,
   },
   {
     number: "3",
     title: "recycleRegularly" as TranslationKey,
     description: "recycleRegularlyDesc" as TranslationKey,
-    icon: <Image src="/images/how-it-works/hand_over_bottle_icon.png" alt="Recycle" width={84} height={84} />,
+    icon: <Image src="/images/how-it-works/hand_over_bottle_icon.png" alt="Recycle" width={115} height={115} />,
   },
   {
     number: "4",
