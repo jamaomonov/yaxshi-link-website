@@ -84,6 +84,68 @@ const FloatingBottle = memo(({
 
 FloatingBottle.displayName = "FloatingBottle"
 
+// Оптимизированный компонент падающей алюминиевой бутылки
+const FloatingAluminumBottle = memo(({
+  delay,
+  duration,
+  startX,
+  endX,
+  startY,
+  endY,
+  size = "w-8 h-8",
+}: {
+  delay: number
+  duration: number
+  startX: number
+  endX: number
+  startY: number
+  endY: number
+  size?: string
+}) => {
+  const shouldReduceMotion = useReducedMotion()
+  
+  if (shouldReduceMotion) {
+    return null
+  }
+
+  return (
+    <motion.div
+      className={`absolute ${size} opacity-80 will-change-transform`}
+      style={{ left: `${startX}%`, top: startY }}
+      initial={{
+        x: 0,
+        y: 0,
+        rotate: 0,
+        opacity: 0,
+      }}
+      animate={{
+        x: `${endX - startX}vw`,
+        y: endY - startY,
+        rotate: 360,
+        opacity: [0, 0.8, 0],
+      }}
+      transition={{
+        duration,
+        delay,
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "linear",
+        repeatType: "loop",
+      }}
+    >
+      <Image
+        src="/icons/bottle_alumin.png"
+        alt="Алюминиевая бутылка"
+        fill
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 32px, 48px"
+        className="pointer-events-none select-none"
+      />
+    </motion.div>
+  )
+})
+
+FloatingAluminumBottle.displayName = "FloatingAluminumBottle"
+
 export default function HeroSection() {
   const { t } = useLanguage()
   const shouldReduceMotion = useReducedMotion()
@@ -108,6 +170,26 @@ export default function HeroSection() {
     { delay: 15, duration: 12, startX: 65, endX: 60, startY: -100, endY: 800, size: "w-7 h-14 sm:w-9 sm:h-18" },
   ], [])
 
+  // Мемоизируем конфигурацию алюминиевых бутылок
+  const aluminumBottleConfigs = useMemo(() => [
+    { delay: 0.5, duration: 9, startX: 20, endX: 25, startY: -100, endY: 800, size: "w-7 h-14 sm:w-9 sm:h-18" },
+    { delay: 2.5, duration: 11, startX: 35, endX: 30, startY: -100, endY: 800, size: "w-8 h-16 sm:w-10 sm:h-20" },
+    { delay: 4.5, duration: 8, startX: 50, endX: 55, startY: -100, endY: 800, size: "w-6 h-12 sm:w-8 sm:h-16" },
+    { delay: 1.5, duration: 10, startX: 65, endX: 60, startY: -100, endY: 800, size: "w-9 h-18 sm:w-11 sm:h-22" },
+    { delay: 3.5, duration: 12, startX: 80, endX: 85, startY: -100, endY: 800, size: "w-7 h-14 sm:w-9 sm:h-18" },
+    { delay: 5.5, duration: 9, startX: 15, endX: 20, startY: -100, endY: 800, size: "w-8 h-16 sm:w-10 sm:h-20" },
+    { delay: 6.5, duration: 11, startX: 40, endX: 45, startY: -100, endY: 800, size: "w-6 h-12 sm:w-8 sm:h-16" },
+    { delay: 8.5, duration: 8, startX: 70, endX: 75, startY: -100, endY: 800, size: "w-9 h-18 sm:w-11 sm:h-22" },
+    { delay: 7.5, duration: 10, startX: 90, endX: 85, startY: -100, endY: 800, size: "w-7 h-14 sm:w-9 sm:h-18" },
+    { delay: 9.5, duration: 12, startX: 25, endX: 30, startY: -100, endY: 800, size: "w-8 h-16 sm:w-10 sm:h-20" },
+    { delay: 10.5, duration: 9, startX: 55, endX: 50, startY: -100, endY: 800, size: "w-6 h-12 sm:w-8 sm:h-16" },
+    { delay: 11.5, duration: 11, startX: 75, endX: 70, startY: -100, endY: 800, size: "w-9 h-18 sm:w-11 sm:h-22" },
+    { delay: 12.5, duration: 8, startX: 10, endX: 15, startY: -100, endY: 800, size: "w-7 h-14 sm:w-9 sm:h-18" },
+    { delay: 13.5, duration: 10, startX: 45, endX: 40, startY: -100, endY: 800, size: "w-8 h-16 sm:w-10 sm:h-20" },
+    { delay: 14.5, duration: 12, startX: 85, endX: 80, startY: -100, endY: 800, size: "w-6 h-12 sm:w-8 sm:h-16" },
+    { delay: 15.5, duration: 9, startX: 30, endX: 35, startY: -100, endY: 800, size: "w-9 h-18 sm:w-11 sm:h-22" },
+  ], [])
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-yaxshi-green-light via-yaxshi-green to-green-400 text-white pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-24 md:pb-16">
       {/* Optimized animated background shapes */}
@@ -129,7 +211,10 @@ export default function HeroSection() {
       {/* Optimized floating bottles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {bottleConfigs.map((config, index) => (
-          <FloatingBottle key={index} {...config} />
+          <FloatingBottle key={`plastic-${index}`} {...config} />
+        ))}
+        {aluminumBottleConfigs.map((config, index) => (
+          <FloatingAluminumBottle key={`aluminum-${index}`} {...config} />
         ))}
       </div>
 
